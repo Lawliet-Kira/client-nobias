@@ -1,53 +1,33 @@
 import { useState } from "react";
 import cn from "classnames";
-import "./styles.scss";
+import "./style.scss";
 
 function FlipCard({ card }) {
   const [showBack, setShowBack] = useState(false);
 
   function handleClick() {
-    if (card.variant === "click") {
-      setShowBack(!showBack);
-    }
-  }
-
-  function handleFocus() {
-    if (card.variant === "focus") {
-      setShowBack(true);
-    }
-  }
-
-  function handleBlur() {
-    if (card.variant === "focus") {
-      setShowBack(false);
-    }
+    setShowBack(!showBack);
   }
 
   return (
-    <div
-      tabIndex={card.id}
-      className={cn("flip-card-outer", {
-        "focus-trigger": card.variant === "focus",
-      })}
-      onClick={handleClick}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-    >
+    <div className={cn("flip-card-outer")} onClick={handleClick}>
       <div
         className={cn("flip-card-inner", {
           showBack,
-          "hover-trigger": card.variant === "hover",
         })}
       >
         <div className="card front">
+          <p>Nosotros encontramos que tu principal sesgo es:</p>
           <div className="card-body d-flex justify-content-center align-items-center">
             <p className="card-text fs-1 fw-bold">{card.title}</p>
           </div>
+          <p className="click-text">click para más info</p>
         </div>
         <div className="card back">
           <div className="card-body d-flex justify-content-center align-items-center">
-            <p className="card-text fs-1 fw-bold">{card.back}</p>
+            <p className="card-text fs-1 fw-bold">{card.title}</p>
           </div>
+          <p>{card.description}</p>
         </div>
       </div>
     </div>

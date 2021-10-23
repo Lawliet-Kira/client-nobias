@@ -1,8 +1,7 @@
 import "./App.css";
 // import logo from "./logo.svg";
-import SimpleForm from "./components/chatbot.jsx";
-import ChatbotNoBias from "./components/ChatbotNoBias";
-//import Result from "./result.jsx";
+// import SimpleForm from "./chatbot.jsx";
+import Result from "./pages/Result/index.jsx";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -23,8 +22,7 @@ function App() {
           No Bias!
         </a> */}
         {/* <SimpleForm /> */}
-        {/* <Result /> */}
-        <ChatbotNoBias />
+        <Result />
       </header>
     </div>
   );

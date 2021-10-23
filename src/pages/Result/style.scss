@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  .simulation {
+    width: 50vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
