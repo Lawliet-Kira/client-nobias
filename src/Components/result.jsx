@@ -1,6 +1,7 @@
-import FlipCard from "./Components/FlipCard.js";
+import FlipCard from "./FlipCard.js";
 
 function Result() {
+  
   const card = {
     id: "2",
     variant: "click",

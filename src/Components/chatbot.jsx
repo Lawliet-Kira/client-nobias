@@ -3,10 +3,8 @@ import PropTypes from "prop-types";
 import ChatBot from "react-simple-chatbot";
 // import {insert} from "./database.js";
 
-
-
-
 class Review extends Component {
+
   constructor(props) {
     super(props);
 
@@ -25,7 +23,6 @@ class Review extends Component {
     const { answer1, answer2, answer3, answer4, answer5, answer6 } = steps;
     console.log('INSERT INTO public.chat (answer1, answer2, answer3, answer4, answer5, answer6) values ( '+answer1.value+','+answer2.value+','+answer3.value+','+answer4.value+','+answer5.value+','+answer6.value+',);');
     this.setState({ answer1, answer2, answer3, answer4, answer5, answer6 });
-
   }
 
   render() {
@@ -52,6 +49,7 @@ class Review extends Component {
       </div>
     );
   }
+
 }
 
 Review.propTypes = {
@@ -66,7 +64,7 @@ class SimpleForm extends Component {
   render() {
     return (
       <ChatBot
-        width="1600px"
+        width="1500px"
         headerTitle="No Bias"
         inputStyle={{ display: "none" }}
         hideSubmitButton="true"
