@@ -17,7 +17,7 @@ function FlipCard({ card }) {
         })}
       >
         <div className="card front">
-          <p>Nosotros encontramos que tu principal sesgo es:</p>
+          <p>Tu principal sesgo corresponde a:</p>
           <div className="card-body d-flex justify-content-center align-items-center">
             <p className="card-text fs-1 fw-bold">{card.title}</p>
           </div>
