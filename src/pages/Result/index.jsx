@@ -1,7 +1,9 @@
-import FlipCard from "../../Components/FlipCard/FlipCard.js";
+
 import Biases from "./biases.js";
 import "./style.scss";
-import { Progress} from "semantic-ui-react";
+
+import {Progress} from "semantic-ui-react";
+import FlipCard from "../../Components/FlipCard/FlipCard.js";
 import AcordeonResultados from "../../Components/Acordeon/Accordeon.js";
 import BarraProgreso from "../../Components/Progress/progress.js";
 
@@ -30,7 +32,7 @@ function Result(bias, result1, result2, result3) {
           <p>Simulación 3</p>
           <Progress indicating percent={result3} progress size="small"/>
         </div>
-
+        <BarraProgreso/>
       </div>
     </div>
   );
