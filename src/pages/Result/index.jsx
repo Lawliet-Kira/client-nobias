@@ -1,24 +1,18 @@
-import FlipCard from "../../Components/FlipCard/index.js";
+import FlipCard from "../../Components/FlipCard/FlipCard.js";
 import Biases from "./biases.js";
 import "./style.scss";
+import { Progress} from "semantic-ui-react";
+import AcordeonResultados from "../../Components/Acordeon/Accordeon.js";
+import BarraProgreso from "../../Components/Progress/progress.js";
 
 function Result(bias, result1, result2, result3) {
-  const typeResult = (result) => {
-    if (result >= 80) {
-      return "success";
-    } else if (result <= 40) {
-      return "danger";
-    } else {
-      return "warning";
-    }
-  };
-  result1 = 60;
-  result2 = 80;
-  result3 = 30;
   bias = "maternal";
-  const type1 = typeResult(result1);
-  const type2 = typeResult(result2);
-  const type3 = typeResult(result3);
+
+  result1 =  10
+  result2 =  50
+  result3 =  80
+
+
   return (
     <div className="container">
       <FlipCard card={Biases[bias]} />
@@ -26,43 +20,17 @@ function Result(bias, result1, result2, result3) {
         <p>Resultados de la simulación</p>
         <div>
           <p>Simulación 1</p>
-          <div className="progress">
-            <div
-              className={"progress-bar bg-" + type1}
-              role="progressbar"
-              style={{ width: result1 + "%" }}
-              aria-valuenow="25"
-              aria-valuemin="0"
-              aria-valuemax="100"
-            ></div>
-          </div>
+          <Progress percent={result1} progress indicating size="small"/>
         </div>
         <div>
           <p>Simulación 2</p>
-          <div className="progress">
-            <div
-              className={"progress-bar bg-" + type2}
-              role="progressbar"
-              style={{ width: result2 + "%" }}
-              aria-valuenow="75"
-              aria-valuemin="0"
-              aria-valuemax="100"
-            ></div>
-          </div>
+          <Progress indicating percent={result2} progress size="small"/>
         </div>
         <div>
           <p>Simulación 3</p>
-          <div className="progress">
-            <div
-              className={"progress-bar bg-" + type3}
-              role="progressbar"
-              style={{ width: result3 + "%" }}
-              aria-valuenow="100"
-              aria-valuemin="0"
-              aria-valuemax="100"
-            ></div>
-          </div>
+          <Progress indicating percent={result3} progress size="small"/>
         </div>
+
       </div>
     </div>
   );
