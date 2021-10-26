@@ -9,14 +9,9 @@ body {
   );
 }
 
-.container {
-  height: 100vh;
-}
 
 .flip-card-outer {
-  width: 30vw;
-  height: 80vh;
-  margin: 25px 0;
+  height: 70vh;
 
   &.focus-trigger:focus {
     outline: 5px solid greenyellow;
@@ -46,6 +41,7 @@ body {
       width: 100%;
       height: 100%;
       padding: 50px;
+      border-radius: 1rem;
 
       &.front {
         transform: rotateY(0);
@@ -62,7 +58,7 @@ body {
       .click_text {
         top: 0;
         left: 0;
-        font-size: 1px;
+        font-size: 3px;
       }
     }
   }

@@ -1,7 +1,5 @@
 import "./App.css";
-// import logo from "./logo.svg";
-// import SimpleForm from "./chatbot.jsx";
-import Result from "./pages/Result/index.jsx";
+import Result from "./pages/Result/index.js";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
