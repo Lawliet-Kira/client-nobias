@@ -37,8 +37,9 @@ export default function Result(bias, result1, result2, result3) {
 
   return (
     <>
-    <ButtonAppBar></ButtonAppBar>
+    
     <ResultGrid container columnSpacing={3}>
+    <ButtonAppBar/>
       <Grid item xs={4}>
         <Item style={{background: 'transparent', boxShadow:'none'}}>
         <FlipCard card={Biases[bias]}></FlipCard>

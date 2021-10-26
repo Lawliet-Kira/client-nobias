@@ -10,7 +10,7 @@ export default function ButtonAppBar() {
   return (
     <Box sx={{ flexGrow: 1}}>
       <AppBar 
-        position="static"
+        position="fixed"
         sx={{background:'#7879F1', width:"100vw"}}
       >
         <Toolbar>
@@ -23,7 +23,7 @@ export default function ButtonAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1}}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign:"left"}}>
             No Bias
           </Typography>
         </Toolbar>
