@@ -11,10 +11,14 @@ class ProgressBar extends Component {
     let barColor;
     if (result >= 80) {
       barColor = classes.barRed;
-    } else if (result <= 40) {
-      barColor = classes.barGreen;
-    } else {
+    } else if (result >= 60) {
+      barColor = classes.barOrange;
+    } else if (result >= 30){
       barColor = classes.barYellow;
+    } else if (result >= 10){
+      barColor = classes.barYellow2;
+    } else {
+      barColor = classes.barGreen;
     }
     return (
       <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -48,17 +52,17 @@ const styles = (props) => ({
   barGreen: {
     backgroundColor: "#66da81",
   },
-  yellow: {
-    backgroundColor: "#ffffff",
+  barYellow2: {
+    backgroundColor: "#B4D95C",
   },
   barYellow: {
-    backgroundColor: "#e6bb48",
+    backgroundColor: "#DDC928",
   },
-  red: {
-    backgroundColor: "#ffffff",
+  barOrange: {
+    backgroundColor: "#EFBC72",
   },
   barRed: {
-    backgroundColor: "#d95c5c",
+    backgroundColor: "#D95C5C",
   },
 });
 
