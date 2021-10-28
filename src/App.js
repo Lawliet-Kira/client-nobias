@@ -1,10 +1,10 @@
 import "./App.css";
 // import logo from "./logo.svg";
-// import SimpleForm from "./components/chatbot.jsx";
-import ChatbotNoBias from "/Components/ChatbotNoBias.jsx";
+import SimpleForm from "./Components/chatbot.jsx";
+// import ChatbotNoBias from "./Components/ChatbotNoBias.jsx";
 //import Result from "./result.jsx";
 
-import 'semantic-ui-css/semantic.min.css'
+import 'semantic-ui-css/semantic.min.css';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -24,9 +24,9 @@ function App() {
         >
           No Bias!
         </a> */}
-        {/* <SimpleForm /> */}
+        <SimpleForm />
         {/* <Result /> */}
-        <ChatbotNoBias />
+        {/* <ChatbotNoBias /> */}
       </header>
     </div>
   );
