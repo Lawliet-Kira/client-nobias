@@ -3,7 +3,7 @@ import { Button, Icon } from 'semantic-ui-react';
 
 import Chatbot, { Loading } from "react-simple-chatbot";
 
-import { postToAPI } from "../utils/API";
+import { postToAPI } from "../Utils/API";
 
 // Importación de Contexto
 import { ContextoBD } from '../contexts/contextBD';

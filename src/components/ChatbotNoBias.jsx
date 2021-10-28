@@ -10,7 +10,7 @@ import { ContextoBD } from '../contexts/contextBD';
 
 import "./scss/ChatbotNoBias.scss";
 
-import { postToAPI } from '../utils/API';
+import { postToAPI } from '../Utils/API';
 
 // Questions
 import GeneralQ from "./questions/GeneralQ";

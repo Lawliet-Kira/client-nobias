@@ -1,7 +1,7 @@
 import "./App.css";
 // import logo from "./logo.svg";
 // import SimpleForm from "./components/chatbot.jsx";
-import ChatbotNoBias from "./components/ChatbotNoBias.jsx";
+import ChatbotNoBias from "./Components/ChatbotNoBias.jsx";
 //import Result from "./result.jsx";
 
 import 'semantic-ui-css/semantic.min.css'

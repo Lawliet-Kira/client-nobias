@@ -4,7 +4,7 @@ import Chatbot, { Loading } from "react-simple-chatbot";
 
 import { ContextoBD } from "../contexts/contextBD";
 
-import { postToAPI, nextBias, codeSesgos } from '../utils/API';
+import { postToAPI, nextBias, codeSesgos } from '../Utils/API';
 
 import "./scss/UnconsciousAPI.scss";
 

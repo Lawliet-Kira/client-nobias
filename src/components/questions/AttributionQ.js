@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import { ContextoBD } from "../../contexts/contextBD";
-import { postToAPI, codeSesgos, nextBias } from '../../utils/API';
+import { postToAPI, codeSesgos, nextBias } from '../../Utils/API';
 
 import AttributionAPI from '../AttributionAPI';
 
