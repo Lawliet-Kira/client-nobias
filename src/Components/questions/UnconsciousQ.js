@@ -3,16 +3,9 @@ import React, { useContext } from 'react';
 import { ContextoBD } from "../../contexts/contextBD";
 import { postToAPI, codeSesgos } from '../../utils/API';
 
-function UnconsciousQ() {
+import UnconsciousAPI from '../UnconsciousAPI';
 
-    const { 
-        resp, 
-        setResp,
-        code,
-        setCode,  
-        url,
-        setUrl
-    } = useContext(ContextoBD);
+function UnconsciousQ() {
 
     return [
         {
@@ -96,49 +89,34 @@ function UnconsciousQ() {
                 {
                     value: "1",
                     label: "Muy de acuerdo",
-                    trigger: () => { 
-                        setCode( codeSesgos.unconscious.code );
-                        setUrl( codeSesgos.unconscious.url );
-                        return "simulation";
-                    }
+                    trigger: "api_u"
                 },
                 {
                     value: "2",
                     label: "Acuerdo",
-                    trigger: () => { 
-                        setCode( codeSesgos.unconscious.code );
-                        setUrl( codeSesgos.unconscious.url );
-                        return "simulation";
-                    }
+                    trigger: "api_u"
                 },
                 {
                     value: "3",
                     label: "Indiferente",
-                    trigger: () => { 
-                        setCode( codeSesgos.unconscious.code );
-                        setUrl( codeSesgos.unconscious.url );
-                        return "simulation";
-                    }
+                    trigger: "api_u"
                 },
                 {
                     value: "4",
                     label: "Desacuerdo",
-                    trigger: () => { 
-                        setCode( codeSesgos.unconscious.code );
-                        setUrl( codeSesgos.unconscious.url );
-                        return "simulation";
-                    }
+                    trigger: "api_u"
                 },
                 {
                     value: "5",
                     label: "Muy en desacuerdo",
-                    trigger: () => { 
-                        setCode( codeSesgos.unconscious.code );
-                        setUrl( codeSesgos.unconscious.url );
-                        return "simulation";
-                    }
+                    trigger: "api_u"
                 }
             ],
+        },
+        {  
+            id: "api_u",
+            component: <UnconsciousAPI />,
+            waitAction: true,
         }
     ];
 

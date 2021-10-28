@@ -6,7 +6,7 @@ const ContextoBD = createContext();
 // Componente Proveedor de contexto
 const ProovedorBD = (props) => {
     
-    const [ resp, setResp ] = useState({});
+    const [ bias, setBias ] = useState([]);
     const [ code, setCode ] = useState("");
     const [ url, setUrl ] = useState("");
 
@@ -14,7 +14,7 @@ const ProovedorBD = (props) => {
         <ContextoBD.Provider 
             value={
                 { 
-                    resp, setResp,
+                    bias, setBias,
                     code, setCode,
                     url, setUrl 
                 }

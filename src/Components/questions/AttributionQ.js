@@ -3,16 +3,9 @@ import React, { useContext } from 'react';
 import { ContextoBD } from "../../contexts/contextBD";
 import { postToAPI, codeSesgos, nextBias } from '../../utils/API';
 
-function AttributionQ(){
+import AttributionAPI from '../AttributionAPI';
 
-  const { 
-    resp, 
-    setResp,
-    code,
-    setCode,  
-    url,
-    setUrl
-  } = useContext(ContextoBD);
+function AttributionQ(){
 
   return [
             {
@@ -66,30 +59,20 @@ function AttributionQ(){
                   {
                     value: "1",
                     label: "Al hombre",
-                    trigger: () => { 
-
-                      setCode( codeSesgos.attribution.code );
-                      setUrl( codeSesgos.attribution.url );
-
-                      return "simulation";
-                      
-                    }
+                    trigger: "api_a"
                   },
                   {
                     value: "2",
                     label: "A la mujer",
-                    trigger: () => { 
-
-                      setCode( codeSesgos.attribution.code );
-                      setUrl( codeSesgos.attribution.url );
-
-                      return "simulation";
-
-                    }
+                    trigger: "api_a"
                   },
                 ],
             },
-
+            {
+              id: "api_a",
+              component: <AttributionAPI />,
+              waitAction: true,
+            }
         ];
 
 }

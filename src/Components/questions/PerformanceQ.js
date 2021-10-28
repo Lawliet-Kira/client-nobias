@@ -3,16 +3,9 @@ import React, { useContext } from 'react';
 import { ContextoBD } from "../../contexts/contextBD";
 import { postToAPI, codeSesgos } from '../../utils/API';
 
-function PerformanceQ() {
+import PerformanceAPI from '../PerformanceAPI';
 
-  const { 
-    resp, 
-    setResp,
-    code,
-    setCode,  
-    url,
-    setUrl
-  } = useContext(ContextoBD);
+function PerformanceQ() {
 
   return [
             {
@@ -147,35 +140,26 @@ function PerformanceQ() {
                   { 
                     value: "1", 
                     label: "Acuerdo", 
-                    trigger: () => { 
-                      setCode( codeSesgos.performance.code );
-                      setUrl( codeSesgos.performance.url );
-                      return "simulation";
-                    }
+                    trigger: "api_p"
                   },
                   { 
                     value: "2", 
                     label: "Neutral", 
-                    trigger: () => { 
-                      setCode( codeSesgos.performance.code );
-                      setUrl( codeSesgos.performance.url );
-                      return "simulation";
-                    }
+                    trigger: "api_p"
                   },
                   { 
                     value: "3", 
                     label: "Desacuerdo", 
-                    trigger: () => { 
-                      setCode( codeSesgos.performance.code );
-                      setUrl( codeSesgos.performance.url );
-                      return "simulation";
-                    }
+                    trigger: "api_p"
                   },
                 ],
             },
-
+            {
+              id: "api_p",
+              component: <PerformanceAPI />,
+              waitAction: true
+            }
         ];
-
 }
 
 export default PerformanceQ;

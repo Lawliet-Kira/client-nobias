@@ -6,8 +6,6 @@ import CompApi from '../CompAPI';
 
 function GeneralQ() {
 
-  const { resp, setResp } = useContext(ContextoBD);
-
   return [
             {
                 id: "gq1",  // General Question 1
