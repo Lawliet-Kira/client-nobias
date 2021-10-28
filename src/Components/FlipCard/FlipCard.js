@@ -21,11 +21,17 @@ function FlipCard({ card }) {
           <div className="card-body d-flex justify-content-center align-items-center">
             <p className="card-text fs-1 fw-bold">{card.title}</p>
           </div>
-          <p className="click-text">click para más info</p>
+          <div className="card-body d-flex justify-content-center align-items-center">
+            <p className="card-text fs-3 fw-italic" style={{color:"#fff"}}>{card.translated}</p>
+          </div>
+          <p className="click-text">Click para más info</p>
         </div>
         <div className="card back">
           <div className="card-body d-flex justify-content-center align-items-center">
             <p className="card-text fs-1 fw-bold">{card.title}</p>
+          </div>
+          <div className="card-body d-flex justify-content-center align-items-center">
+            <p className="card-text fs-3 fw-italic" style={{color:"#fff"}}>{card.translated}</p>
           </div>
           <p>{card.description}</p>
         </div>
