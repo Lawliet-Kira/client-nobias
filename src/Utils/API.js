@@ -1,4 +1,4 @@
-module.exports.postToAPI = async (url = "", data = {}) => {
+const postToAPI = async (url = "", data = {}) => {
 
     // Default options are marked with *
     const response = await fetch(url, {
@@ -19,7 +19,7 @@ module.exports.postToAPI = async (url = "", data = {}) => {
 
 }
 
-module.exports.codeSesgos = { 
+const codeSesgos = { 
 
     performance: {
         code: "1", 
@@ -40,7 +40,7 @@ module.exports.codeSesgos = {
 
 };
 
-module.exports.nextBias = (num) => {
+const nextBias = (num) => {
 
     let nextq;
 
@@ -61,3 +61,5 @@ module.exports.nextBias = (num) => {
     return nextq;
 
 }
+
+export {  postToAPI,  nextBias, codeSesgos };
