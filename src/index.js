@@ -7,10 +7,8 @@ import App from './App';
 import { ProovedorBD } from './contexts/contextBD'; 
 
 ReactDOM.render(
-  <React.StrictMode>
     <ProovedorBD>
       <App />
-    </ProovedorBD>
-  </React.StrictMode>,
+    </ProovedorBD>,
   document.getElementById('root')
 );
