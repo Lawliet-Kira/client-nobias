@@ -4,6 +4,8 @@ import SimpleForm from "./components/chatbot.jsx";
 import ChatbotNoBias from "./components/ChatbotNoBias";
 //import Result from "./result.jsx";
 
+import 'semantic-ui-css/semantic.min.css'
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {

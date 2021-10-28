@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import Chatbot from 'react-simple-chatbot';
 import Link from './Link';
 
 // style-components
 import { ThemeProvider } from 'styled-components';
 
+// Importación de Contexto
+import { ContextoBD } from '../contexts/contextBD';
+
 import "./scss/ChatbotNoBias.scss";
+
+import { postToAPI } from '../utils/API';
+
+// Questions
+import GeneralQ from "./questions/GeneralQ";
+import AttributionQ from "./questions/AttributionQ";
+import PerformanceQ from "./questions/PerformanceQ";
+import UnconsciousQ from "./questions/UnconsciousQ";
 
 const theme = {
     background: '#f5f8fb',
@@ -21,51 +32,47 @@ const theme = {
 
 const ChatbotNoBias = () => {
 
-    // Handle para la base de datos y redirección al 
-    const handleEnd = ({steps, values}) => {
-        // console.log(steps);
-        // console.log(values);
-        alert(`Chat handleEnd callback! Number: ${values[0]}`);
-
-        // Enviar datos a la base de datos
-    }
-
-    const steps = [
+    const { 
+        resp, 
+        setResp,
+        code,
+        setCode,  
+        url,
+        setUrl
+    } = useContext(ContextoBD);
+    
+    const steps = [ 
         {
-            id: '1',
-            message: 'Pick a number',
-            trigger: '2',
+            id: "0", // Welcome Message
+            message: "Bienvenido al chatbot de No Bias, por favor responda las siguientes preguntas con honestidad",
+            trigger: "gq1", 
+        },
+        ...GeneralQ(),
+        ...AttributionQ(),
+        ...PerformanceQ(),
+        ...UnconsciousQ(),
+        {
+            id: "simulation",
+            message: "Ahora entraras a una simulación para ver como actuarias ante una situación de la vida real",
+            trigger: "simulationLink"
         },
         {
-            id: '2',
-            options: [
-                { value: '1', label: '1', trigger: '3' },
-                { value: '2', label: '2', trigger: '3' },
-                { value: '3', label: '3', trigger: '3' },
-                { value: '4', label: '4', trigger: '3' },
-                { value: '5', label: '5', trigger: '3' },
-            ],
-        },
-        {  
-            id: '3',
-            message: 'A callback message was called',
-            trigger: '4',
-        },
-        {
-            id: '4',
+            id: "simulationLink",
             component: <Link />,
+            waitAction: true,
+            asMessage: true,
             end: true,
-        },
-
+        }
+        
     ];
 
     return ( 
         <ThemeProvider theme={theme}>
             <Chatbot
-                handleEnd={handleEnd}
                 width="1000px"
+                height="800px"
                 hideHeader={true}
-                hideSubmitButton="true"
+                hideSubmitButton={true}
                 inputStyle={{ display: "none" }}
                 botAvatar={"../logoNB.png"}
                 steps={steps}
