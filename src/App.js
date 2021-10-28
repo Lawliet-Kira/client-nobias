@@ -1,6 +1,6 @@
 import "./App.css";
 // import logo from "./logo.svg";
-import SimpleForm from "./components/chatbot.jsx";
+// import SimpleForm from "./components/chatbot.jsx";
 import ChatbotNoBias from "./components/ChatbotNoBias";
 //import Result from "./result.jsx";
 
