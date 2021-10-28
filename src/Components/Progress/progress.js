@@ -46,19 +46,19 @@ const styles = (props) => ({
     backgroundColor: "#4f0069",
   },
   barGreen: {
-    backgroundColor: "#90EE90",
+    backgroundColor: "#66da81",
   },
   yellow: {
     backgroundColor: "#ffffff",
   },
   barYellow: {
-    backgroundColor: "#ffffe0",
+    backgroundColor: "#e6bb48",
   },
   red: {
     backgroundColor: "#ffffff",
   },
   barRed: {
-    backgroundColor: "#FF7F7F",
+    backgroundColor: "#d95c5c",
   },
 });
 

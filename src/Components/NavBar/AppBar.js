@@ -22,7 +22,7 @@ export default function ButtonAppBar() {
             <img src={MenuIcon} alt="MenuIcon" className="logo" />
           </IconButton>
           <Typography
-            variant="h6"
+            variant="h4"
             component="div"
             sx={{ flexGrow: 1, textAlign: "left" }}
           >
