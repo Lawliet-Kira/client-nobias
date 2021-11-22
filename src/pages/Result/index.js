@@ -50,14 +50,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Result(bias, result1, result2, result3) {
+export default function Result( ) {
   const classes = useStyles();
 
-  bias = "maternal";
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const bias = urlParams.get("bias");
+  const simulation1 = urlParams.get("simulation1");
+  const simulation2 = urlParams.get("simulation2");
+  const simulation3 = urlParams.get("simulation3");
 
-  result1 = 10;
-  result2 = 50;
-  result3 = 80;
+
 
   return (
     <>
@@ -91,7 +94,7 @@ export default function Result(bias, result1, result2, result3) {
                     <Typography>Simulacion 1</Typography>
                   </div>
                   <div className={classes.column2} style={{ margin: "10px" }}>
-                    <ProgressBar result={result1} />
+                    <ProgressBar result={simulation1} />
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -114,7 +117,7 @@ export default function Result(bias, result1, result2, result3) {
                     <Typography>Simulacion 2</Typography>
                   </div>
                   <div className={classes.column2} style={{ margin: "10px" }}>
-                    <ProgressBar result={result2} />
+                    <ProgressBar result={simulation2} />
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -137,7 +140,7 @@ export default function Result(bias, result1, result2, result3) {
                     <Typography>Simulacion 3</Typography>
                   </div>
                   <div className={classes.column2} style={{ margin: "10px" }}>
-                    <ProgressBar result={result3} />
+                    <ProgressBar result={simulation3} />
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
