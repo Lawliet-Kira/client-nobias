@@ -1,4 +1,5 @@
 import Biases from "./biases.js";
+import Explicaciones from "./explicaciones.js"
 import FlipCard from "../../Components/FlipCard/FlipCard.js";
 import ButtonAppBar from "../../Components/NavBar/AppBar.js";
 import ProgressBar from "../../Components/Progress/progress.js";
@@ -59,7 +60,22 @@ export default function Result( ) {
   const simulation1 = urlParams.get("simulation1");
   const simulation2 = urlParams.get("simulation2");
   const simulation3 = urlParams.get("simulation3");
+  const opciones = urlParams.get("options");
 
+  var array_opciones = opciones.split(";");
+  var texto_situacion_4 = "";
+
+  if (bias === "unconscious") {
+    document.getElementById("situacion_4").style.display = "block"
+    texto_situacion_4 = Explicaciones[bias]["situacion_1"][parseInt(array_opciones[3])];
+  }
+  else {
+    document.getElementById("situacion_4").style.display = "none";
+  }
+
+  const texto_situacion_1 = Explicaciones[bias]["situacion_1"][parseInt(array_opciones[0])];
+  const texto_situacion_2 = Explicaciones[bias]["situacion_1"][parseInt(array_opciones[1])];
+  const texto_situacion_3 = Explicaciones[bias]["situacion_1"][parseInt(array_opciones[2])];
 
 
   return (
@@ -83,7 +99,7 @@ export default function Result( ) {
             <Typography sx={{ textAlign: "left", fontSize: 32, mb: 5 }}>
               Resultados
             </Typography>
-            <div className={classes.root}>
+            <div className={classes.root}id="situacion_1">
               <Accordion>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
@@ -99,14 +115,12 @@ export default function Result( ) {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
+                    {texto_situacion_1}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
             </div>
-            <div className={classes.root}>
+            <div className={classes.root}id="situacion_2">
               <Accordion>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
@@ -122,14 +136,12 @@ export default function Result( ) {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
+                    {texto_situacion_2}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
             </div>
-            <div className={classes.root}>
+            <div className={classes.root}id="situacion_3">
               <Accordion>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
@@ -145,9 +157,28 @@ export default function Result( ) {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
+                  {texto_situacion_3}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            </div>
+            <div className={classes.root} id="situacion_4">
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <div className={classes.column}>
+                    <Typography>Simulacion 4</Typography>
+                  </div>
+                  <div className={classes.column2} style={{ margin: "10px" }}>
+                    <ProgressBar result={simulation3} />
+                  </div>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    {texto_situacion_4}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
