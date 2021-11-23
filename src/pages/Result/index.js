@@ -60,22 +60,22 @@ export default function Result( ) {
   const simulation1 = urlParams.get("simulation1");
   const simulation2 = urlParams.get("simulation2");
   const simulation3 = urlParams.get("simulation3");
+  var simulation4 = "";
   const opciones = urlParams.get("options");
 
   var array_opciones = opciones.split(";");
   var texto_situacion_4 = "";
+  var display_variable = "none";
 
   if (bias === "unconscious") {
-    document.getElementById("situacion_4").style.display = "block"
-    texto_situacion_4 = Explicaciones[bias]["situacion_1"][parseInt(array_opciones[3])];
-  }
-  else {
-    document.getElementById("situacion_4").style.display = "none";
+    display_variable = "block";
+    simulation4 = urlParams.get("simulation4");
+    texto_situacion_4 = Explicaciones[bias]["situacion_4"][parseInt(array_opciones[3])];
   }
 
   const texto_situacion_1 = Explicaciones[bias]["situacion_1"][parseInt(array_opciones[0])];
-  const texto_situacion_2 = Explicaciones[bias]["situacion_1"][parseInt(array_opciones[1])];
-  const texto_situacion_3 = Explicaciones[bias]["situacion_1"][parseInt(array_opciones[2])];
+  const texto_situacion_2 = Explicaciones[bias]["situacion_2"][parseInt(array_opciones[1])];
+  const texto_situacion_3 = Explicaciones[bias]["situacion_3"][parseInt(array_opciones[2])];
 
 
   return (
@@ -162,7 +162,7 @@ export default function Result( ) {
                 </AccordionDetails>
               </Accordion>
             </div>
-            <div className={classes.root} id="situacion_4">
+            <div className={classes.root} id="situacion_4" style ={{display: `${display_variable}`}}>
               <Accordion>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
@@ -173,7 +173,7 @@ export default function Result( ) {
                     <Typography>Simulacion 4</Typography>
                   </div>
                   <div className={classes.column2} style={{ margin: "10px" }}>
-                    <ProgressBar result={simulation3} />
+                    <ProgressBar result={simulation4} />
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
