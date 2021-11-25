@@ -65,19 +65,26 @@ export default function Result( ) {
 
   var array_opciones = opciones.split(";");
   var texto_situacion_4 = "";
-  var display_variable = "none";
-
-  if (bias === "unconscious") {
-    display_variable = "block";
-    simulation4 = urlParams.get("simulation4");
-    texto_situacion_4 = Explicaciones[bias]["situacion_4"][parseInt(array_opciones[3])];
-  }
+  var display_variable_4 = "none";
+  var display_variable_3 = "";
 
   const texto_situacion_1 = Explicaciones[bias]["situacion_1"][parseInt(array_opciones[0])];
   const texto_situacion_2 = Explicaciones[bias]["situacion_2"][parseInt(array_opciones[1])];
   const texto_situacion_3 = Explicaciones[bias]["situacion_3"][parseInt(array_opciones[2])];
 
+  if (bias === "unconscious") {
+      display_variable_4 = "block";
+      simulation4 = urlParams.get("simulation4");
+      texto_situacion_4 = Explicaciones[bias]["situacion_4"][parseInt(array_opciones[3])];
+    }
 
+  
+
+
+  const [expanded, setExpanded] = React.useState('panel1')
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel: false);
+  }
   return (
     <>
       <ResultGrid container columnSpacing={3}>
@@ -96,11 +103,11 @@ export default function Result( ) {
               backgroundColor: "#fff",
             }}
           >
-            <Typography sx={{ textAlign: "left", fontSize: 32, mb: 5 }}>
+            <Typography sx={{ textAlign: "left", fontSize: 32, mb: 5, fontWeight: 600}}>
               Resultados
             </Typography>
             <div className={classes.root}id="situacion_1">
-              <Accordion>
+              <Accordion expanded={expanded === 'panel1'} onChange= {handleChange('panel1')}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls="panel1a-content"
@@ -109,80 +116,81 @@ export default function Result( ) {
                   <div className={classes.column}>
                     <Typography>Simulacion 1</Typography>
                   </div>
-                  <div className={classes.column2} style={{ margin: "10px" }}>
+                  <div className={classes.column2} style={{ margin: "0px 10px"}}>
                     <ProgressBar result={simulation1} />
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography>
+                  <Typography sx={{ fontSize: 16}}>
                     {texto_situacion_1}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
             </div>
             <div className={classes.root}id="situacion_2">
-              <Accordion>
+              <Accordion expanded={expanded === 'panel2'} onChange= {handleChange('panel2')}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
+                  aria-controls="panel2d-content"
+                  id="panel2d-header"
                 >
                   <div className={classes.column}>
                     <Typography>Simulacion 2</Typography>
                   </div>
-                  <div className={classes.column2} style={{ margin: "10px" }}>
+                  <div className={classes.column2} style={{ margin: "0px 10px" }}>
                     <ProgressBar result={simulation2} />
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography>
+                  <Typography sx={{ fontSize: 16}}>
                     {texto_situacion_2}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
             </div>
-            <div className={classes.root}id="situacion_3">
-              <Accordion>
+            <div className={classes.root}id="situacion_3" style = {{display: `${display_variable_3}`}}>
+              <Accordion expanded={expanded === 'panel3'} onChange= {handleChange('panel3')}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
+                  aria-controls="panel3d-content"
+                  id="panel3d-header"
                 >
                   <div className={classes.column}>
                     <Typography>Simulacion 3</Typography>
                   </div>
-                  <div className={classes.column2} style={{ margin: "10px" }}>
+                  <div className={classes.column2} style={{ margin: "0px 10px" }}>
                     <ProgressBar result={simulation3} />
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography>
+                  <Typography sx={{ fontSize: 16}}>
                   {texto_situacion_3}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
             </div>
-            <div className={classes.root} id="situacion_4" style ={{display: `${display_variable}`}}>
-              <Accordion>
+            <div className={classes.root} id="situacion_4" style ={{display: `${display_variable_4}`}}>
+              <Accordion expanded={expanded === 'panel4'} onChange= {handleChange('panel4')}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
+                  aria-controls="panel4d-content"
+                  id="panel4d-header"
                 >
                   <div className={classes.column}>
                     <Typography>Simulacion 4</Typography>
                   </div>
-                  <div className={classes.column2} style={{ margin: "10px" }}>
+                  <div className={classes.column2} style={{ margin: "0px 10px" }}>
                     <ProgressBar result={simulation4} />
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography>
+                  <Typography sx={{ fontSize: 16}}>
                     {texto_situacion_4}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
             </div>
+
           </Item>
         </Grid>
       </ResultGrid>
