@@ -151,7 +151,7 @@ function App() {
       <ResultGrid container columnSpacing={3} rowSpacing={20}>
         {/* El spacing entre la barra y el resto esta hecho a la mala */}
         <Grid item xs={12}>
-          <ButtonAppBar />
+          <ButtonAppBar position='fixed'/>
         </Grid>
         <Grid item xs={6}>
           <ReactFC {...chartConfigs} />
