@@ -1,5 +1,6 @@
 import "./App.css";
-import Result from "./pages/Result/index.js";
+//import Result from "./pages/Result/Result.js";
+import Capsulas from "./pages/Capsulas/Capsulas.js";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -20,7 +21,7 @@ function App() {
           No Bias!
         </a> */}
         {/* <SimpleForm /> */}
-        <Result />
+        <Capsulas />
       </header>
     </div>
   );
