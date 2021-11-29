@@ -1,6 +1,7 @@
 // STEP 1 - Include Dependencies
 // Include react
 import React, { useState } from "react";
+import { Text, StyleSheet } from "react-native";
 
 // Include the react-fusioncharts component
 import ReactFC from "react-fusioncharts";
@@ -17,9 +18,9 @@ import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 
-import { Container, Box } from "@mui/material";
-
 import ButtonAppBar from "../src/Components/NavBar/AppBar";
+
+import "./Dashboard.css";
 
 // Adding the chart and theme as dependency to the core fusioncharts
 ReactFC.fcRoot(FusionCharts, MSColumn2D, FusionTheme);
@@ -35,14 +36,14 @@ function App() {
     "Sesgo Desempeño\n",
   ];
   const TextQueEs = [
-    " \n",
+    "",
     "Significado Maternal\n",
     "Significado Inconsciente\n",
     "Significado Atribución\n",
     "Significado Desempeño\n",
   ];
   const TextSesgoConsejo = [
-    " ",
+    "",
     "Consejo de maternal\n",
     "Consejo Inconsciente",
     "Consejo Atribución",
@@ -128,8 +129,8 @@ function App() {
   // STEP 3 - Creating the JSON object to store the chart configurations
   const chartConfigs = {
     type: "mscolumn2d", // The chart type
-    width: "1000", // Width of the chart
-    height: "600", // Height of the chart
+    width: "100%", // Width of the chart
+    height: "40%", // Height of the chart
     dataFormat: "JSON", // Data type
     dataSource: dataSource,
     events: {
@@ -139,30 +140,50 @@ function App() {
     },
   };
 
-  const ResultGrid = styled(Grid)`
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #a5a6f6;
-  `;
+  const styles = StyleSheet.create({
+    Bias: {
+      fontSize: 30,
+      fontWeight: "bold",
+      width: "100%",
+      textAlign: "center",
+    },
+    Description: {
+      fontSize: 20,
+    },
+  });
   // STEP 4 - Creating the DOM element to pass the react-fusioncharts component
   return (
-    <>
-      <ResultGrid container columnSpacing={3} rowSpacing={20}>
+    <div style={{ backgroundColor: "#a5a6f6", height: "100vh" }}>
+      <div style={{ height: "30vh" }}></div>
+      <Grid
+        container
+        spacing={3}
+        justifyContent="space-between"
+        alignItems="center"
+      >
         {/* El spacing entre la barra y el resto esta hecho a la mala */}
         <Grid item xs={12}>
-          <ButtonAppBar position='fixed'/>
+          <ButtonAppBar position="fixed" />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={1}></Grid>
+        <Grid item xs={5}>
           <ReactFC {...chartConfigs} />
         </Grid>
-        <Grid item xs={6}>
-          {TextSesgo[bias]}
-          {TextQueEs[bias]}
-          {TextSesgoConsejo[bias]}
+        <Grid item xs={1}></Grid>
+        <Grid
+          item
+          xs={5}
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text style={styles.Bias}>{TextSesgo[bias]}</Text>
+          <Text style={styles.Description}>{TextQueEs[bias]}</Text>
+          <Text style={styles.Description}>{TextSesgoConsejo[bias]}</Text>
         </Grid>
-      </ResultGrid>
-    </>
+      </Grid>
+    </div>
   );
 }
 

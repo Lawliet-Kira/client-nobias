@@ -1,0 +1,22 @@
+{   
+    "sesgo_desempeño":{
+        "nombre" : "Sesgo de desempeño",
+        "definicion": "Se basa en suposiciones profundamente arraigadas e incorrectas sobre las capacidades de las mujeres o los hombres. Tendemos a subestimar el desempeño de las mujeres y a sobreestimar el de los hombres",
+        "consejos" : "1. Recordemos que las mujeres son tan capaces como los hombres.#2. Evitemos asumir primeras impresiones en tu ambiente de trabajo.#3. Evitemos asumir las habilidades de una mujer, en vez de eso, conozcamos y nos daremos cuenta de sus capacidades."
+    },
+    "sesgo_atribucion":{
+        "nombre" : "Sesgo de atribución",
+        "definicion" : "Este sesgo está conectado con el sesgo de desempeño. A las mujeres se les ve menos competentes que a los hombres, por lo cual tendemos a darle menos crédito por sus logros y más culpa por sus errores.",
+        "consejos" : "1. Evitemos las comparaciones innecesarias entre hombres y mujeres.#2.Recordemos que tanto mujeres como hombres ponen de todo su esfuerzo para obtener logros.#3.Reconozcamos los logros tanto de hombres como mujeres."
+    },
+    "sesgo_inconsciente":{
+        "nombre" : "Sesgo inconsciente",
+        "definicion" : "Atajos mentales que nuestro cerebro realiza para que el mundo alrededor nuestro tenga sentido. Es común que la gente experimente discriminación abierta en base a su raza, genero, sexualidad entre otros.",
+        "consejos": "1. Quitémonos de la mente el hecho de que las mujeres son tiernas y frágiles.#2. Evitemos bromas infantiles como la famosa frase “Eso es un trago de mina”.#3. Antes de hacer un acto de caballerosidad, preguntemos a la mujer si a ella no le molesta, no asumamos.#4. Evitemos clasificar formas de vestir, colores, juguetes, etc. hacia hombres o mujeres. Cualquiera puede escoger lo que quiera."
+    },
+    "sesgo_maternal":{
+        "nombre": "Maternal",
+        "definicion" : "La maternidad desencadena falsas suposiciones de que las mujeres son menos competentes y están menos comprometidas con sus carreras.",
+        "consejos": "1. A veces se nos olvida que la responsabilidad de un hijo, es del hombre y de la mujer.#2. Recordemos que el que una mujer tenga un bebé, no le es impedimento alguno para seguir siendo la misma profesional que ha sido siempre.#3. Evitemos asumir que una madre no está comprometida con ciertas cosas del trabajo."
+    }
+}
