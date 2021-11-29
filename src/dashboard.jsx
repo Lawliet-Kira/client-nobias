@@ -20,6 +20,8 @@ import { styled } from "@mui/material/styles";
 
 import ButtonAppBar from "../src/Components/NavBar/AppBar";
 
+import { borders } from '@mui/system';
+
 import "./Dashboard.css";
 
 // Adding the chart and theme as dependency to the core fusioncharts
@@ -53,15 +55,17 @@ function App() {
   // STEP 2 - Chart Data
   const dataSource = {
     chart: {
-      caption: "Sesgos de género con mayor presencia",
+      caption: "Presencia de sesgos de género",
       subcaption: "",
       xaxisname: "Sésgos",
-      yaxisname: "Porcentaje",
+      yaxisname: "Porcentaje de trabajadores",
       formatnumberscale: "1",
       plottooltext: "<b>$dataValue</b> de los trabajadores presentan $label",
       theme: "fusion",
       drawcrossline: "1",
-      bgColor: "#f5f8fb",
+      paletteColors: "7879F1, FF959A",
+      bgColor: "#FFFFFF",
+      numberSuffix: "%"
     },
     categories: [
       {
@@ -84,42 +88,37 @@ function App() {
     dataset: [
       {
         seriesname: "Tu empresa",
-        initiallyHidden: 1,
+        initiallyHidden: 0,
         data: [
           {
-            value: "125000",
+            value: "10",
           },
           {
-            value: "300000",
+            value: "20",
           },
           {
-            value: "480000",
+            value: "30",
           },
           {
-            value: "800000",
-          },
-          {
-            value: "1100000",
+            value: "40",
           },
         ],
       },
       {
         seriesname: "Otras",
+        initiallyHidden: 1,
         data: [
           {
-            value: "70000",
+            value: "40",
           },
           {
-            value: "150000",
+            value: "30",
           },
           {
-            value: "350000",
+            value: "20",
           },
           {
-            value: "600000",
-          },
-          {
-            value: "1400000",
+            value: "10",
           },
         ],
       },
@@ -129,8 +128,8 @@ function App() {
   // STEP 3 - Creating the JSON object to store the chart configurations
   const chartConfigs = {
     type: "mscolumn2d", // The chart type
-    width: "100%", // Width of the chart
-    height: "40%", // Height of the chart
+    width: "90%", // Width of the chart
+    height: "50%", // Height of the chart
     dataFormat: "JSON", // Data type
     dataSource: dataSource,
     events: {
@@ -139,6 +138,7 @@ function App() {
       },
     },
   };
+
 
   const styles = StyleSheet.create({
     Bias: {
@@ -166,7 +166,7 @@ function App() {
           <ButtonAppBar position="fixed" />
         </Grid>
         <Grid item xs={1}></Grid>
-        <Grid item xs={5}>
+        <Grid item xs={5} sx={{ borderRadius: 5 }} style={{background: "#ffffff"}} alignItems="center" justifyContent="center">
           <ReactFC {...chartConfigs} />
         </Grid>
         <Grid item xs={1}></Grid>
