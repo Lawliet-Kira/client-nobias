@@ -1,6 +1,8 @@
 import { useState } from "react";
 import cn from "classnames";
 import "./style.scss";
+import { Typography } from "@mui/material";
+import { typography } from "@mui/system";
 
 function FlipCard({ card }) {
   const [showBack, setShowBack] = useState(false);
@@ -17,23 +19,23 @@ function FlipCard({ card }) {
         })}
       >
         <div className="card front">
-          <p>Tu principal sesgo corresponde a:</p>
+          <Typography> Tu principal sesgo corresponde a:</Typography>
           <div className="card-body d-flex justify-content-center align-items-center">
-            <p className="card-text fs-1 fw-bold">{card.title}</p>
+            <Typography variant="h3" fontWeight={700}>{card.title}</Typography>
           </div>
           <div className="card-body d-flex justify-content-center align-items-center">
-            <p className="card-text fs-3 fw-italic" style={{color:"#fff"}}>{card.translated}</p>
+            <Typography variant="h5" sx={{color:"#fff"}}>{card.translated} </Typography>
           </div>
-          <p className="click-text">Click para más info</p>
+          <Typography>Click para más info </Typography>
         </div>
         <div className="card back">
           <div className="card-body d-flex justify-content-center align-items-center">
-            <p className="card-text fs-1 fw-bold">{card.title}</p>
+            <Typography variant="h3" fontWeight={700}>{card.title}</Typography>
           </div>
           <div className="card-body d-flex justify-content-center align-items-center">
-            <p className="card-text fs-3 fw-italic" style={{color:"#fff"}}>{card.translated}</p>
+            <Typography variant="h5" sx={{color:"#fff"}}>{card.translated} </Typography>
           </div>
-          <p>{card.description}</p>
+          <Typography> {card.description}</Typography>
         </div>
       </div>
     </div>
