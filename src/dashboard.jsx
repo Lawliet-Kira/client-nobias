@@ -139,6 +139,7 @@ function App() {
     },
   };
 
+
   const styles = StyleSheet.create({
     Bias: {
       fontSize: 30,
