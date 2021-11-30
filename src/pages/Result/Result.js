@@ -196,7 +196,7 @@ export default function Result( ) {
           </Item>
           
         </Grid>
-        <FAB/>
+        <FAB text_bold="Revisaste tus resultados?" text_normal="Prueba con hacer clic en el logo de No Bias para navegar al inicio de la aplicacion."/>
       </ResultGrid>
     </>
   );
