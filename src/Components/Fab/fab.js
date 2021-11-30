@@ -23,14 +23,14 @@ const HtmlTooltip = styled(({className, ...props}) => (
         backgroundColor: "fff",
         color: "0000",
         maxWidth: 220,
-        fontSize: 11,
+        fontSize: 16,
         border: '1px solid #dadde9',
     },
 }));
 
 
 
-export default function FAB() {
+const FAB = ({text_bold, text_normal}) => {
 
     const fabs = {
         color: 'inherit',
@@ -46,8 +46,8 @@ export default function FAB() {
             <HtmlTooltip
                 title={
                     <React.Fragment>
-                        <Typography color='inherit'> Ayuda </Typography>
-                        <b>{"Revisaste tus resultados?"}</b><br/> {"Prueba con hacer clic en el logo de No Bias para navegar al inicio de la aplicacion."}
+                        <Typography color='inherit' fontSize={24}> Ayuda </Typography>
+                        <><b>{text_bold}</b><br/>{text_normal}</>
                     </React.Fragment>
                 }
             >
@@ -59,3 +59,5 @@ export default function FAB() {
     </div>
   );
 }
+
+export default FAB;
