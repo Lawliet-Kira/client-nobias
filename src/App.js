@@ -21,7 +21,7 @@ function App() {
           No Bias!
         </a> */}
         {/* <SimpleForm /> */}
-        <Result />
+        <Capsulas />
       </header>
     </div>
   );
