@@ -2,7 +2,6 @@ import { useState } from "react";
 import cn from "classnames";
 import "./style.scss";
 import { Typography } from "@mui/material";
-import { typography } from "@mui/system";
 
 function FlipCard({ card }) {
   const [showBack, setShowBack] = useState(false);
