@@ -1,12 +1,12 @@
 // STEP 1 - Include Dependencies
 // Include react
-import React, { useState } from "react";
-import { Text, StyleSheet } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Text, StyleSheet} from "react-native";
 
 // Include the react-fusioncharts component
 import ReactFC from "react-fusioncharts";
 
-// Include the fusioncharts library
+// Include the fusioncharts librarys
 import FusionCharts from "fusioncharts";
 
 // Include the chart type
@@ -16,41 +16,64 @@ import MSColumn2D from "fusioncharts/fusioncharts.charts";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 
 import Grid from "@mui/material/Grid";
+
 import { styled } from "@mui/material/styles";
 
 import ButtonAppBar from "../src/Components/NavBar/AppBar";
 
 import { borders } from '@mui/system';
 
+import axios from 'axios';
+
 import "./Dashboard.css";
+import { copyDone } from "pg-protocol/dist/messages";
+
+
 
 // Adding the chart and theme as dependency to the core fusioncharts
 ReactFC.fcRoot(FusionCharts, MSColumn2D, FusionTheme);
 
 function App() {
-  const [bias, SetBias] = useState(0);
 
-  const TextSesgo = [
-    "Clickear gráfico para más info\n",
-    "Sesgo Maternal\n",
-    "Sesgo Inconsciente\n",
-    "Sesgo Atribución\n",
-    "Sesgo Desempeño\n",
-  ];
-  const TextQueEs = [
-    "",
-    "Significado Maternal\n",
-    "Significado Inconsciente\n",
-    "Significado Atribución\n",
-    "Significado Desempeño\n",
-  ];
-  const TextSesgoConsejo = [
-    "",
-    "Consejo de maternal\n",
-    "Consejo Inconsciente",
-    "Consejo Atribución",
-    "Consejo Desempeño",
-  ];
+  document.title = "Dashboard"
+
+  const [body, setbody] = useState({ code: "RR3F3MC2" });
+
+  const [data, setdata] = useState([]);
+
+  useEffect(async function(){
+
+    await axios.post('https://api-nobias.herokuapp.com/dashboard', body).then((res) => {  
+        console.log(res.data)
+        let tipos = [0,0,0,0]
+        let total = 0
+        for(let i = 0; i < res.data.length ; i++){
+            tipos[res.data[i].type-1] += 1
+            total += 1
+        }
+        tipos[0] = Math.round(tipos[0]*100/total)
+        tipos[1] = Math.round(tipos[1]*100/total)
+        tipos[2] = Math.round(tipos[2]*100/total)
+        tipos[3] = Math.round(tipos[3]*100/total)
+        console.log("tipos",tipos)
+        setdata(tipos)
+        console.log("data:", data)
+        
+    }).catch(err => {
+        console.log("Error dashboard",err);
+    }).then(() => {
+        
+    });
+
+
+  }, []);
+
+  var sesgos = require("./sesgos.json");
+
+  console.log(sesgos);
+  console.log(data)
+
+  const [bias, SetBias] = useState(0);
 
   // STEP 2 - Chart Data
   const dataSource = {
@@ -71,16 +94,16 @@ function App() {
       {
         category: [
           {
-            label: "Sesgo Maternal",
-          },
-          {
-            label: "Sesgo Inconsciente",
-          },
-          {
-            label: "Sesgo Atribución",
-          },
-          {
             label: "Sesgo Desempeño",
+          },
+          {
+            label: "Sesgo Atribucion",
+          },
+          {
+            label: "Sesgo Incosciente",
+          },
+          {
+            label: "Sesgo Maternal",
           },
         ],
       },
@@ -91,21 +114,21 @@ function App() {
         initiallyHidden: 0,
         data: [
           {
-            value: "10",
+            value: data[0],
           },
           {
-            value: "20",
+            value: data[1],
           },
           {
-            value: "30",
+            value: data[2],
           },
           {
-            value: "40",
+            value: data[3],
           },
         ],
       },
       {
-        seriesname: "Otras",
+        seriesname: "Otras Empresas",
         initiallyHidden: 1,
         data: [
           {
@@ -146,10 +169,28 @@ function App() {
       fontWeight: "bold",
       width: "100%",
       textAlign: "center",
+      marginTop: 10,
+    },
+    Subtitle: {
+      fontSize: 25,
+      fontWeight: "bold",
+      width: "100%",
+      textAlign: "center",
     },
     Description: {
       fontSize: 20,
+      marginLeft: 40,
+      marginRight: 40,
+      marginTop: 20,
+      justify: "center",
     },
+    CodeEnt: {
+      fontSize: 25,
+      width: "100%",
+      textAlign: "center",
+      marginTop: 20,
+      marginBottom: 20,
+    }
   });
   // STEP 4 - Creating the DOM element to pass the react-fusioncharts component
   return (
@@ -171,17 +212,29 @@ function App() {
         </Grid>
         <Grid item xs={1}></Grid>
         <Grid
-          item
-          xs={5}
+          container justify = "center"
+          xs={3}
           style={{
-            justifyContent: "center",
+            justify: "center",
             alignItems: "center",
+            background: "#ffffff",
+            borderRadius: 10
           }}
         >
-          <Text style={styles.Bias}>{TextSesgo[bias]}</Text>
-          <Text style={styles.Description}>{TextQueEs[bias]}</Text>
-          <Text style={styles.Description}>{TextSesgoConsejo[bias]}</Text>
+          <Text style={styles.Bias}>{sesgos[bias].nombre + "\n"}</Text>
+          <Text style={styles.Description}>
+          <Text>{sesgos[bias].definicion + "\n"}</Text>
+          </Text>
+          <Text style={styles.Subtitle}>{"\nComo evitarlo\n"}</Text>
+          <Text style={styles.Description}>{sesgos[bias].consejos + "\n\n"}</Text>
         </Grid>
+        <Grid item xs={2}></Grid>
+      </Grid>
+      <Grid container justify = "center" xs={7}>
+        <Text style={styles.CodeEnt}>
+        <Text>{"Tu código de empresa es "}</Text>
+        <Text style={{fontWeight:"bold"}}>{`${body.code}`}</Text>
+        </Text>
       </Grid>
     </div>
   );
