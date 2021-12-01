@@ -26,10 +26,10 @@ export default function CustomizedInputBase() {
         <Paper
         component="form"
         color="primary"
-        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 500 , backgroundColor:"#7879F1", color:"white"}}
+        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 500 , backgroundColor:"#7879F1"}}
         >
         <InputBase
-            sx={{ ml: 1, flex: 1 }}
+            sx={{ ml: 1, flex: 1, color:"#fff"}}
             placeholder="Codigo de Empresa"
             inputProps={{ 'aria-label': 'codigo' }}
         />
