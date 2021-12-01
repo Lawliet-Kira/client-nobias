@@ -58,7 +58,7 @@ function InicioPersona () {
                         //  justifyContent="center"
                          alignItems="center"
                          >  
-                            <Link to="Resultados">
+                            <Link to="../Resultados?bias=unconscious&simulation1=60&simulation2=100&simulation3=20&simulation4=50&options=3;1;1;1">
                             <Button variant="contained" color="boton" size="large" >Iniciar Test</Button>
                             </Link>
                             <CustomizedInputBase/>
