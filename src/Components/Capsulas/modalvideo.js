@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 import YouTube from 'react-youtube';
-import { borderRadius } from '@mui/system';
 
 const style = {
 	position: 'absolute',
@@ -16,8 +15,8 @@ const style = {
 	bgcolor: '#A5A6F6',
 	borderRadius: 3,
 	color: "#35366E",
-	border: '2px solid background.paper',
-	boxShadow: 20,
+	// border: '2px solid background.paper',
+	// boxShadow: 20,
 	p: 4,
 };
 
@@ -31,7 +30,6 @@ const VideoModal = ({bias, foto, explicacion, video}) => {
 		height: '390',
 		width: '640',
 		playerVars: {
-		  // https://developers.google.com/youtube/player_parameters
 		  autoplay: 1,
 		},
 	  };

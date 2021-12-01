@@ -4,7 +4,6 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import { Typography } from "@mui/material";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 // Custom components
 import ButtonAppBar from "../../Components/NavBar/AppBar.js";
