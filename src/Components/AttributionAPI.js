@@ -1,14 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import Chatbot, { Loading } from "react-simple-chatbot";
+import { Loading } from "react-simple-chatbot";
 
-import { postToAPI, nextBias, codeSesgos } from '../Utils/API';
+import { postToAPI, codeSesgos } from '../utils/API';
 
 import "./scss/AttributionAPI.scss";
 
 import { ContextoBD } from '../contexts/contextBD';
 
 const AttributionAPI = (props) => {
+
+    const { triggerNextStep, steps } = props;
     
     const [ loading, setLoading ] = useState(true);
 
@@ -18,17 +20,14 @@ const AttributionAPI = (props) => {
         setBias,
         bias
     } = useContext(ContextoBD);
-    
-    const triggerNext = (biasq) => {
-        props.triggerNextStep({ trigger: biasq });
-    }
 
     useEffect(() => {
+        
         postToAPI("https://nobiaspredictions.herokuapp.com/predictAttribution", {
             values: [
-                props.steps.aa1.value,
-                props.steps.aa2.value,
-                props.steps.aa3.value
+                steps.aa1.value,
+                steps.aa2.value,
+                steps.aa3.value
             ]
         }).then((data) => {
 
@@ -41,20 +40,22 @@ const AttributionAPI = (props) => {
                 ]
             });
 
-            if( data == 1 ){
+            if( data === 1 ){
                 setCode(codeSesgos.attribution.code);
                 setUrl(codeSesgos.attribution.url);
-                triggerNext("simulation");
+                triggerNextStep({ trigger: "simulation" });
             }else{
 
                 if( !bias.includes("unconscious") ){
-                    triggerNext("uq1");
-                }else if( !bias.includes("performance") ){
-                    triggerNext("pq1");
-                }else{ 
+                    triggerNextStep({ trigger: "uq1" });
+                }else if ( !bias.includes("performance") ){
+                    triggerNextStep({ trigger: "pq1" });
+                }else if ( !bias.includes("maternal")){
+                    triggerNextStep({ trigger: "mq1" });
+                }else { 
                     setCode(codeSesgos.attribution.code);
                     setUrl(codeSesgos.attribution.url);
-                    triggerNext("simulation");
+                    triggerNextStep({ trigger: "simulation" });
                 }
             }
 

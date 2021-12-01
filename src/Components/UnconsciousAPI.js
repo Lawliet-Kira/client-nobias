@@ -1,14 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import Chatbot, { Loading } from "react-simple-chatbot";
+import  { Loading } from "react-simple-chatbot";
 
 import { ContextoBD } from "../contexts/contextBD";
 
-import { postToAPI, nextBias, codeSesgos } from '../Utils/API';
+import { postToAPI,  codeSesgos } from '../utils/API';
 
 import "./scss/UnconsciousAPI.scss";
 
 const UnconsciousAPI = (props) => {
+
+    const { triggerNextStep, steps } = props;
 
     const [ loading, setLoading ] = useState(true);
     
@@ -19,16 +21,12 @@ const UnconsciousAPI = (props) => {
         setUrl
     } = useContext(ContextoBD);
     
-    const triggerNext = (biasq) => {
-        props.triggerNextStep({ trigger: biasq });
-    }
-
     useEffect(() => {
         postToAPI("https://nobiaspredictions.herokuapp.com/predictUnconscious", {
             values: [
-                props.steps.ua1.value,
-                props.steps.ua2.value,
-                props.steps.ua3.value
+                steps.ua1.value,
+                steps.ua2.value,
+                steps.ua3.value
             ]
         }).then((data) => {
 
@@ -41,20 +39,22 @@ const UnconsciousAPI = (props) => {
                 ]
             });
 
-            if( data == 1 ){
+            if( data === 1 ){
                 setCode(codeSesgos.unconscious.code);
                 setUrl(codeSesgos.unconscious.url);
-                triggerNext("simulation");
+                triggerNextStep({ trigger: "simulation" });
             }else{
                 
                 if( !bias.includes("attribution") ){
-                    triggerNext("aq1");
+                    triggerNextStep({ trigger: "aq1" });
                 }else if( !bias.includes("performance") ){
-                    triggerNext("pq1");
+                    triggerNextStep({ trigger: "pq1" });   
+                }else if( !bias.includes("maternal")){
+                    triggerNextStep({ trigger: "mq1" });
                 }else{ 
                     setCode(codeSesgos.unconscious.code);
                     setUrl(codeSesgos.unconscious.url);
-                    triggerNext("simulation");
+                    triggerNextStep({ trigger: "simulation" });
                 }
             }
 

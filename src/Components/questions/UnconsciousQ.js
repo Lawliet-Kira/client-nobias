@@ -1,7 +1,4 @@
-import React, { useContext } from 'react';
-
-import { ContextoBD } from "../../contexts/contextBD";
-import { postToAPI, codeSesgos } from '../../Utils/API';
+import React from 'react';
 
 import UnconsciousAPI from '../UnconsciousAPI';
 

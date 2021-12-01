@@ -1,7 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-import { ContextoBD } from "../../contexts/contextBD";
-import { postToAPI, nextBias } from '../../Utils/API';
 import CompApi from '../CompAPI';
 
 function GeneralQ() {

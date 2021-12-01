@@ -1,99 +1,135 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 
-import Chatbot, { Loading } from "react-simple-chatbot";
+import { Loading } from "react-simple-chatbot";
 
-import { postToAPI } from "../Utils/API";
+import { postToAPI } from "../utils/API";
 
 // Importación de Contexto
 import { ContextoBD } from '../contexts/contextBD';
 
 const Link = (props) => {
-    
-    const [ loading, setLoading ] = useState(true);
-    const [ idSim, setidSim ] = useState("");
 
+    const { triggerNextStep, steps, employee } = props;
+
+    const [ loading, setLoading ] = useState(true);
+    const [ idSim, setidSim ] = useState();
+    
     const { 
         code,
-        setCode,  
         url,
-        setUrl
     } = useContext(ContextoBD);
 
-    const triggerNext = () => {
-        props.triggerNextStep();
-    }
+    useEffect(async () => {
 
-    useEffect(() => {
+        let ID;
 
-        if( code == "1" ){    // Perfomance
+        function SetID(id){
+            ID = id;
+        }
+
+        if( code === "1" ){    // Perfomance
             
             // Enviar respuestas a la base de datos
-            postToAPI("https://api-nobias.herokuapp.com/chatresp", {
+            await postToAPI("https://api-nobias.herokuapp.com/chatresp", {
                 type: "1",
-                r1: props.steps.ga1.value, 
-                r2: props.steps.ga2.value,      
-                r3: props.steps.ga3.value,
-                r4: props.steps.pa1.value,
-                r5: props.steps.pa2.value,
-                r6: props.steps.pa3.value
+                r1: steps.ga1.value, 
+                r2: steps.ga2.value,      
+                r3: steps.ga3.value,
+                r4: steps.pa1.value,
+                r5: steps.pa2.value,
+                r6: steps.pa3.value
             }).then( (res) => {
+                SetID(res.id);
                 setidSim(res.id);
-                setLoading(false);
-                triggerNext();
             })
 
-        }else if ( code == "2" ){ // Attribution
+        }else if ( code === "2" ){ // Attribution
 
             // Enviar respuestas a la base de datos
-            postToAPI("https://api-nobias.herokuapp.com/chatresp", {
+            await postToAPI("https://api-nobias.herokuapp.com/chatresp", {
                 type: "2",
-                r1: props.steps.ga1.value, 
-                r2: props.steps.ga2.value,      
-                r3: props.steps.ga3.value,
-                r4: props.steps.aa1.value,
-                r5: props.steps.aa2.value,
-                r6: props.steps.aa3.value 
+                r1: steps.ga1.value, 
+                r2: steps.ga2.value,      
+                r3: steps.ga3.value,
+                r4: steps.aa1.value,
+                r5: steps.aa2.value,
+                r6: steps.aa3.value 
             }).then( (res) => {
+            
+                SetID(res.id);
                 setidSim(res.id);
-                setLoading(false);
-                triggerNext();
+
             })
 
-        }else if ( code == "3" ){ // Unconscious
+        }else if ( code === "3" ){ // Unconscious
 
             // Enviar respuestas a la base de datos
-            postToAPI("https://api-nobias.herokuapp.com/chatresp", {
+            await postToAPI("https://api-nobias.herokuapp.com/chatresp", {
                 type: "3",
-                r1: props.steps.ga1.value, 
-                r2: props.steps.ga2.value,      
-                r3: props.steps.ga3.value,
-                r4: props.steps.ua1.value,
-                r5: props.steps.ua2.value,
-                r6: props.steps.ua3.value
+                r1: steps.ga1.value, 
+                r2: steps.ga2.value,      
+                r3: steps.ga3.value,
+                r4: steps.ua1.value,
+                r5: steps.ua2.value,
+                r6: steps.ua3.value
             }).then( (res) => {
+               
+                SetID(res.id);
                 setidSim(res.id);
-                setLoading(false);
-                triggerNext();
+
             })
+
+        } else if ( code === "4" ) { // Maternal
+
+            // Enviar respuestas a la base de datos
+            await postToAPI("https://api-nobias.herokuapp.com/chatresp", {
+                type: "4",
+                r1: steps.ga1.value, 
+                r2: steps.ga2.value,      
+                r3: steps.ga3.value,
+                r4: steps.ma1.value,
+                r5: steps.ma2.value,
+                r6: steps.ma3.value
+            }).then( (res) => {
+                
+                SetID(res.id);
+                setidSim(res.id);
+            })            
 
         } else {    // Attribution
             // Enviar respuestas a la base de datos
-            postToAPI("https://api-nobias.herokuapp.com/chatresp", {    
+            await postToAPI("https://api-nobias.herokuapp.com/chatresp", {    
                 type: "2",
-                r1: props.steps.ga1.value, 
-                r2: props.steps.ga2.value,      
-                r3: props.steps.ga3.value,
-                r4: props.steps.aa1.value,
-                r5: props.steps.aa2.value,
-                r6: props.steps.aa3.value 
+                r1: steps.ga1.value, 
+                r2: steps.ga2.value,      
+                r3: steps.ga3.value,
+                r4: steps.aa1.value,
+                r5: steps.aa2.value,
+                r6: steps.aa3.value 
             }).then( (res) => {
+                SetID(res.id);
                 setidSim(res.id);
-                setLoading(false);
-                triggerNext();
             })
 
         }
+
+        if ( employee ){ 
+
+            const req = {
+                id: ID,
+                entcode: employee.code 
+            }
+
+            // Enviar respuestas a la base de datos
+            await postToAPI("https://api-nobias.herokuapp.com/user", req).then( (res) => {
+                console.log("bd user: ", res);
+            })
+
+        }
+
+        setLoading(false);
+        triggerNextStep();    
         
     }, []); 
 
