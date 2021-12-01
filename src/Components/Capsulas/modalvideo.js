@@ -1,10 +1,10 @@
 import * as React from 'react'
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 import YouTube from 'react-youtube';
+import { borderRadius } from '@mui/system';
 
 const style = {
 	position: 'absolute',
@@ -13,8 +13,9 @@ const style = {
 	transform: 'translate(-50%, -50%)',
 	width: "640",
 	height: "60vh",
-	bgcolor: 'background.paper',
-	borderRadius: "30",
+	bgcolor: '#A5A6F6',
+	borderRadius: 3,
+	color: "#35366E",
 	border: '2px solid background.paper',
 	boxShadow: 20,
 	p: 4,
@@ -24,7 +25,6 @@ const style = {
 
 const VideoModal = ({bias, foto, explicacion, video}) => {
 	const [open, setOpen] = React.useState(false);
-	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 
 	const opts = {
@@ -35,11 +35,16 @@ const VideoModal = ({bias, foto, explicacion, video}) => {
 		  autoplay: 1,
 		},
 	  };
+	
+	const imgStyle = {
+		borderRadius: 8,
+	}
+
 
 
 	return (
 		<div>
-			<img alt="nombre" src={foto} width={400} maxHeight={300} onClick={()=> setOpen(true)} />
+			<img alt="nombre" src={foto} width={400} maxHeight={300} onClick={()=> setOpen(true)} style={imgStyle} />
 			<Modal
 				open={open}
 				onClose={handleClose}
