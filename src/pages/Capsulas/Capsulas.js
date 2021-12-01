@@ -15,6 +15,7 @@ import MiniPerformance from "../../assets/Capsulas/Img/MiniaturaPerformance.jpg"
 import MiniUnconscious from "../../assets/Capsulas/Img/MiniaturaUnconscious.jpg";
 import MiniLikeability from "../../assets/Capsulas/Img/MiniaturaLikeability.jpg";
 
+import Biases from "../../pages/Result/biases";
 
 import VideoModal from "../../Components/Capsulas/modalvideo";
 
@@ -30,6 +31,7 @@ const color = "#35366E"
 
 export default function Capsulas() {
 
+    const exp_afinity = Biases[""]
 
     return (
             <ResultGrid container columnSpacing = {3} rowSpacing={6} align="center">
@@ -41,38 +43,38 @@ export default function Capsulas() {
                     </Typography>
                 </Grid>
                 <Grid item xs={4}>
-                    <VideoModal bias="Affinity" foto={MiniPerformance} explicacion="asdfhjkasjkhdf" video="2g811Eo7K8U"/>
+                    <VideoModal bias="Affinity" foto={MiniPerformance} explicacion={Biases["affinity"].description} video="2g811Eo7K8U"/>
                     <Typography fontSize={24} fontWeight={700} color={color}>
                         Affinity Bias
                     </Typography>
                 </Grid>
                 <Grid item xs={4}>
-                    <VideoModal bias="Likeability" foto={MiniLikeability} explicacion="asdfhjkasjkhdf" video="t57pJIcNyUk"/>
+                    <VideoModal bias="Likeability" foto={MiniLikeability} explicacion={Biases["likeability"].description} video="t57pJIcNyUk"/>
                     <Typography fontSize={24} fontWeight={700} color={color}>
                         Likeability Bias
                     </Typography>
                 </Grid>
                 <Grid item xs={4}>
-                    <VideoModal bias="Performance" foto={MiniPerformance} explicacion="asdfhjkasjkhdf" video="2g811Eo7K8U"/>
+                    <VideoModal bias="Performance" foto={MiniPerformance} explicacion={Biases["performance"].description} video="2g811Eo7K8U"/>
                     <Typography fontSize={24} fontWeight={700} color={color}>
                         Performance Bias
                     </Typography>
                 </Grid>
                 {/* Segunda Fila */}
                 <Grid item xs={4}>
-                    <VideoModal bias="Unconscious" foto={MiniUnconscious} explicacion="asdfhjkasjkhdf" video="2g811Eo7K8U"/>
+                    <VideoModal bias="Unconscious" foto={MiniUnconscious} explicacion={Biases["unconscious"].description} video="2g811Eo7K8U"/>
                     <Typography fontSize={24} fontWeight={700} color={color}>
                         Unconscious Bias
                     </Typography>
                 </Grid>
                 <Grid item xs={4}>
-                    <VideoModal bias="Maternal" foto={MiniMaternal} explicacion="asdfhjkasjkhdf" video="2g811Eo7K8U"/>
+                    <VideoModal bias="Maternal" foto={MiniMaternal} explicacion={Biases["maternal"].description} video="2g811Eo7K8U"/>
                     <Typography fontSize={24} fontWeight={700} color={color}>
                         Maternal Bias
                     </Typography>
                 </Grid>
                 <Grid item xs={4}>
-                    <VideoModal bias="Attribution" foto={MiniAttribution} explicacion="asdfhjkasjkhdf" video="2g811Eo7K8U"/>
+                    <VideoModal bias="Attribution" foto={MiniAttribution} explicacion={Biases["attribution"].description} video="2g811Eo7K8U"/>
                     <Typography fontSize={24} fontWeight={700} color={color}> 
                         Attribution Bias
                     </Typography>
