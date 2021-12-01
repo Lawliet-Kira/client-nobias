@@ -50,16 +50,16 @@ function InicioPersona () {
                             </Typography>
                         </Grid>  
                     </Grid>
-                    <Grid item xs={12} alignItems="center" justifyContent="center" sx={{mt:10}}>
+                    <Grid item xs={12} sx={{mt:10}}>
                         <ThemeProvider theme={theme}>
                         <Stack
-                         spacing={5} 
+                         spacing={3} 
                          direction="column" 
-                         justifyContent="center"
+                        //  justifyContent="center"
                          alignItems="center"
                          >  
                             <Link to="Resultados">
-                            <Button variant="contained" color="boton" size="large">Iniciar Test</Button>
+                            <Button variant="contained" color="boton" size="large" >Iniciar Test</Button>
                             </Link>
                             <CustomizedInputBase/>
                             

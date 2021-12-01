@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import SendIcon from '@mui/icons-material/Send';
+import { Typography } from '@mui/material';
 
 const theme = createTheme({
     palette: {
@@ -23,11 +24,13 @@ const theme = createTheme({
 export default function CustomizedInputBase() {
   return (
       <ThemeProvider theme={theme}>
+        <Typography color="#fff" variant="h6" sx={{alignItems:"flex-start"}}>¿Vienes de una empresa? </Typography>
         <Paper
         component="form"
         color="primary"
         sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 500 , backgroundColor:"#7879F1"}}
         >
+            
         <InputBase
             sx={{ ml: 1, flex: 1, color:"#fff"}}
             placeholder="Codigo de Empresa"
