@@ -15,6 +15,8 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
+
+
 import FAB from "../../Components/Fab/fab.js"
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -70,30 +72,67 @@ export default function Result( ) {
   var display_variable_4 = "none";
   var display_variable_3 = "";
 
-  const texto_situacion_1 = Explicaciones[bias]["situacion_1"][parseInt(array_opciones[0])];
-  const texto_situacion_2 = Explicaciones[bias]["situacion_2"][parseInt(array_opciones[1])];
-  const texto_situacion_3 = Explicaciones[bias]["situacion_3"][parseInt(array_opciones[2])];
+  var suma = parseInt(simulation1) + parseInt(simulation2) + parseInt(simulation3)
+  var cant_simulaciones = 3
+
+  var texto_situacion_1 = ""
+  var texto_situacion_1_2 = ""
+
+  var texto_situacion_2 = ""
+  var texto_situacion_2_2 = ""
+
+  var texto_situacion_3 = ""
+
 
   if (bias === "unconscious") {
       display_variable_4 = "block";
       simulation4 = urlParams.get("simulation4");
-      texto_situacion_4 = Explicaciones[bias]["situacion_4"][parseInt(array_opciones[3])];
+      texto_situacion_4 = Explicaciones[bias]["situacion_4"][array_opciones[3]];
+      suma += parseInt(simulation4)
+      cant_simulaciones += 1
+  } else if (bias === "attribution") {
+    if (array_opciones[0] !== "1") {
+      const texto = Explicaciones[bias]["situacion_1"][array_opciones[0]].split('#');
+      texto_situacion_1 = texto[0]
+      texto_situacion_1_2 = texto[1]
+    } else {
+      texto_situacion_1 = Explicaciones[bias]["situacion_1"][array_opciones[0]];
     }
 
-  
+    if (array_opciones[1] !== "1") {
+      const texto2 = Explicaciones[bias]["situacion_1"][array_opciones[0]].split('#');
+      texto_situacion_2 = texto2[0]
+      texto_situacion_2_2 = texto2[1]
+    } else{
+      texto_situacion_2 = Explicaciones[bias]["situacion_2"][array_opciones[1]];
+    }
+    texto_situacion_3 = Explicaciones[bias]["situacion_3"][array_opciones[2]];
 
+  } else{
+    texto_situacion_1 = Explicaciones[bias]["situacion_1"][array_opciones[0]];
+    texto_situacion_2 = Explicaciones[bias]["situacion_2"][array_opciones[1]];
+    texto_situacion_3 = Explicaciones[bias]["situacion_3"][array_opciones[2]];
+  }
+  
+  
+  const promedio = Math.round(suma/cant_simulaciones )
 
   const [expanded, setExpanded] = React.useState('panel1')
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel: false);
   }
+
+  const textStyle = {
+    fontSize: 16,
+  }
+
   return (
     <>
       <ResultGrid container columnSpacing={3}>
         <ButtonAppBar />
         <Grid item xs={4}>
           <Item style={{ background: "transparent", boxShadow: "none" }}>
-            <FlipCard card={Biases[bias]}></FlipCard>
+            <FlipCard card={Biases[bias]} promedio={promedio}></FlipCard>
           </Item>
         </Grid>
         <Grid item xs={8}>
@@ -123,8 +162,8 @@ export default function Result( ) {
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography sx={{ fontSize: 16}}>
-                    {texto_situacion_1}
+                  <Typography sx={{textStyle}} align='justify'>
+                    {texto_situacion_1}{<br/>}{<br/>}{texto_situacion_1_2} 
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -144,8 +183,8 @@ export default function Result( ) {
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography sx={{ fontSize: 16}}>
-                    {texto_situacion_2}
+                  <Typography sx={{textStyle}} align='justify'>
+                    {texto_situacion_2}{<br/>}{<br/>}{texto_situacion_2_2} 
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -165,8 +204,8 @@ export default function Result( ) {
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography sx={{ fontSize: 16}}>
-                  {texto_situacion_3}
+                  <Typography sx={{textStyle}} align='justify'>
+                  {texto_situacion_3}{<br/>}{<br/>}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -186,8 +225,8 @@ export default function Result( ) {
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography sx={{ fontSize: 16}}>
-                    {texto_situacion_4}
+                  <Typography sx={{textStyle}} align='justify'>
+                    {texto_situacion_4}{<br/>}{<br/>}
                   </Typography>
                 </AccordionDetails>
               </Accordion>

@@ -3,7 +3,7 @@ import cn from "classnames";
 import "./style.scss";
 import { Typography } from "@mui/material";
 
-function FlipCard({ card }) {
+const FlipCard = ({ card , promedio}) => {
   const [showBack, setShowBack] = useState(false);
 
   function handleClick() {
@@ -25,6 +25,7 @@ function FlipCard({ card }) {
           <div className="card-body d-flex justify-content-center align-items-center">
             <Typography variant="h5" sx={{color:"#fff"}}>{card.translated} </Typography>
           </div>
+          <Typography variant="h6" fontStyle="oblique" fontWeight={600}>{promedio}% presencia del sesgo</Typography>
           <Typography>Click para más info </Typography>
         </div>
         <div className="card back">
