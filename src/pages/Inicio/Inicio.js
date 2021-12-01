@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Box from '@mui/material/Box';
 import Topbar from '../../Components/NavBar/AppBar.js';
 import FAB from "../../Components/Fab/fab.js";
 import { Grid, Typography } from '@mui/material';
@@ -7,6 +6,8 @@ import { styled } from '@mui/styles';
 import MenuIcon from "../../logoNB.png";
 import { Stack, Button } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+import { Link } from 'react-router-dom';
 
 const ResultGrid = styled(Grid)`
   width: 100%;
@@ -27,8 +28,8 @@ function Inicio () {
 
     return(
         <div className="">    
-            <Topbar tipo="inicio"/>
-            <ResultGrid container direction="row">
+            <Topbar tipo="inicios"/>
+            <ResultGrid container direction="row" alignItems="center">
                 <Grid item xs={3}></Grid>
                 <Grid item xs={6} rowSpacing={2} alignItems="center" sx={{minWidth:600}}>
                     <Grid container alignItems= "center">
@@ -48,8 +49,11 @@ function Inicio () {
                          direction="row" 
                          justifyContent="center"
                          alignItems="center"
-                         >
+                         >  
+                            <Link to="Persona">
                             <Button variant="contained" color="boton" size="large">Soy Persona</Button>
+                            </Link>
+                            {/* Hacer link para Empresas */}
                             <Button variant="contained" color="boton" size="large">Soy Empresa</Button>
                         </Stack>
                         </ThemeProvider>

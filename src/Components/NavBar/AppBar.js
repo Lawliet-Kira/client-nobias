@@ -19,6 +19,8 @@ import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 import GroupsIcon from '@mui/icons-material/Groups';
 
 
+import { Link } from "react-router-dom";
+
 
 const ButtonAppBar = ({tipo}) => {
 
@@ -41,32 +43,38 @@ const ButtonAppBar = ({tipo}) => {
       sx = {{bgcolor: '#7879F1', height:'100%'}}
       >
         <List>
+        <Link to="/">
           <ListItem button key={'Inicio'} sx={{pt: 3, pb:3, color:'white'}}>
-            <ListItemIcon>
-              <HomeIcon sx={{color: 'white'}}/>
-            </ListItemIcon>
-            <ListItemText primary={'Inicio'}/>
+              <ListItemIcon>
+                <HomeIcon sx={{color: 'white'}}/>
+              </ListItemIcon>
+              <ListItemText primary={'Inicio'}/>
           </ListItem>
+          </Link>
+          <Link to="/Capsulas">
           <ListItem button key={'Aprende otros sesgos'} sx={{pt: 3, pb:3, color:'white'}}>
             <ListItemIcon>
               <LocalLibraryIcon sx={{color: 'white'}}/>
             </ListItemIcon>
             <ListItemText primary={'Aprende otros sesgos'} />
           </ListItem>
+          </Link>
+          <a target="_blank" rel="noreferrer" href="https://nobias.feriadesoftware.cl">
           <ListItem button key={'Conoce Nobias'}  sx={{pt: 3, pb:3, color:'white'}}>
             <ListItemIcon>
               <GroupsIcon sx={{color: 'white'}}/>
             </ListItemIcon>
             <ListItemText primary={'Conoce Nobias'}/>
           </ListItem>
+          </a>
         </List>
     </Box>
   )
   
   if (tipo === "inicio") {
     return (
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="fixed" sx={{ background: "#7879F1", width: "100vw" }}>
+      <Box height="10vh" sx={{ flexGrow: 1 }}>
+        <AppBar height="10vh" position="fixed" sx={{ background: "#7879F1", width: "100vw" }}>
           
           <Toolbar>
             {["left"].map((anchor) => (

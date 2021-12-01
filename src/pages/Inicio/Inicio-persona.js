@@ -1,16 +1,16 @@
 import * as React from 'react'
-import Box from '@mui/material/Box';
 import Topbar from '../../Components/NavBar/AppBar.js';
 import FAB from "../../Components/Fab/fab.js";
-import { Grid, Paper, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { styled } from '@mui/styles';
 import MenuIcon from "../../logoNB.png";
 import { Stack, Button } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { TextField, InputBase } from '@mui/material';
+
 
 import CustomizedInputBase from '../../Components/Input/input.js';
+import { Link } from 'react-router-dom';
 
 const ResultGrid = styled(Grid)`
   width: 100%;
@@ -18,13 +18,6 @@ const ResultGrid = styled(Grid)`
   align-items: center;
 `;
 
-const CodigoField = styled(Paper) (({theme}) => ({
-    backgroundColor: '#7879F1',
-    width:500,
-    p: '2px 4px',
-    borderRadius: 10,
-    elevation:4,
-}));
 
 const theme = createTheme({
     palette: {
@@ -64,8 +57,10 @@ function InicioPersona () {
                          direction="column" 
                          justifyContent="center"
                          alignItems="center"
-                         >
+                         >  
+                            <Link to="Resultados/?bias=unconscious&simulation1=60&simulation2=100&simulation3=20&simulation4=50&options=1;1;1">
                             <Button variant="contained" color="boton" size="large">Iniciar Test</Button>
+                            </Link>
                             <CustomizedInputBase/>
                             
 
