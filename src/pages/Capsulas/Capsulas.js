@@ -14,6 +14,7 @@ import MiniMaternal from "../../assets/Capsulas/Img/MiniaturaMaternal.jpg";
 import MiniPerformance from "../../assets/Capsulas/Img/MiniaturaPerformance.jpg";
 import MiniUnconscious from "../../assets/Capsulas/Img/MiniaturaUnconscious.jpg";
 import MiniLikeability from "../../assets/Capsulas/Img/MiniaturaLikeability.jpg";
+import MiniAffinity from "../../assets/Capsulas/Img/MiniaturaAffinity.jpg";
 
 import Biases from "../../pages/Result/biases";
 
@@ -43,7 +44,7 @@ export default function Capsulas() {
                     </Typography>
                 </Grid>
                 <Grid item xs={4}>
-                    <VideoModal bias="Affinity" foto={MiniPerformance} explicacion={Biases["affinity"].description} video="Xg03HuskXq8"/>
+                    <VideoModal bias="Affinity" foto={MiniAffinity} explicacion={Biases["affinity"].description} video="Xg03HuskXq8"/>
                     <Typography fontSize={24} fontWeight={700} color={color}>
                         Affinity Bias
                     </Typography>
