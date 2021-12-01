@@ -28,19 +28,46 @@ import axios from 'axios';
 import "./Dashboard.css";
 import { copyDone } from "pg-protocol/dist/messages";
 
+import InfoIcon from '@mui/icons-material/Info';
+
+import Modal from '@mui/material/Modal'
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+
+
 
 
 // Adding the chart and theme as dependency to the core fusioncharts
 ReactFC.fcRoot(FusionCharts, MSColumn2D, FusionTheme);
 
+const estiloModal = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  borderRadius: 5,
+  p: 4,
+};
+
 function App() {
 
   document.title = "Dashboard"
 
+  //Se usan para el grafico
   const [body, setbody] = useState({ code: "RR3F3MC2" });
-
   const [data, setdata] = useState([]);
 
+
+  //Se usan para el modal
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  
   useEffect(async function(){
 
     await axios.post('https://api-nobias.herokuapp.com/dashboard', body).then((res) => {  
@@ -188,6 +215,7 @@ function App() {
       fontSize: 25,
       width: "100%",
       textAlign: "center",
+      alignItems: "center",
       marginTop: 20,
       marginBottom: 20,
     }
@@ -231,11 +259,36 @@ function App() {
         <Grid item xs={2}></Grid>
       </Grid>
       <Grid container justify = "center" xs={7}>
-        <Text style={styles.CodeEnt}>
-        <Text>{"Tu código de empresa es "}</Text>
-        <Text style={{fontWeight:"bold"}}>{`${body.code}`}</Text>
-        </Text>
+          <Text style={styles.CodeEnt}>
+          <Text>{"Tu código de empresa es "}</Text>
+          <Text style={{fontWeight:"bold"}}>{`${body.code}`}</Text>
+          <IconButton style={{color:"#1685ef"}}><InfoIcon fontSize = "large" onClick={handleOpen} /></IconButton>
+          </Text>
       </Grid>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={estiloModal}>
+          <Typography id="modal-modal-title" variant="h6" component="h2" style={{fontWeight: "bold"}}>
+            Información
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} align="justify">{
+            "- Tu código de empresa será utilizado para agrupar todos los empleados de tu empresa\n"}
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} align="justify">{
+            "- Debes entregar este código a cada uno los empleados que desees que realicen el test."}
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} align="justify">{
+            "- Cuando inicien la aplicación los empleados deberán ingresar el código antes de iniciar el test."}
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} align="justify" style={{fontWeight: "bold"}}>{
+            "ESTE CÓDIGO SOLO DEBE SER COMPARTIDO CON LOS EMPLEADOS DE TU EMPRESA."}
+          </Typography>
+        </Box>
+      </Modal>
     </div>
   );
 }
