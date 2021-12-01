@@ -20,7 +20,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 
 
 
-export default function ButtonAppBar() {
+const ButtonAppBar = ({tipo}) => {
 
   const [state, setState] = React.useState({
     left: false,
@@ -62,42 +62,79 @@ export default function ButtonAppBar() {
         </List>
     </Box>
   )
-
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ background: "#7879F1", width: "100vw" }}>
-        <Toolbar>
-          {["left"].map((anchor) => (
-            <React.Fragment key={anchor}>
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }}
-                onClick= {toggleDrawer (anchor, true)}
-              >
-                <img src={MenuIcon} alt="MenuIcon" className="logo" />
-              </IconButton>
-              <Drawer 
-                anchor={anchor}
-                open={state[anchor]}
-                onClose={toggleDrawer(anchor, false)}
-                elevation={2}
-              >
-              {list(anchor)}
-              </Drawer>
-            </React.Fragment>
-          ))}
-          <Typography
-            variant="h4"
-            component="div"
-            sx={{ flexGrow: 1, textAlign: "left" }}
-          >
-            No Bias
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  );
+  
+  if (tipo === "inicio") {
+    return (
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="fixed" sx={{ background: "#7879F1", width: "100vw" }}>
+          
+          <Toolbar>
+            {["left"].map((anchor) => (
+              <React.Fragment key={anchor}>
+                <IconButton
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  sx={{ mr: 2 }}
+                >
+                  <img src={MenuIcon} alt="MenuIcon" className="logo" />
+                </IconButton>
+              </React.Fragment>
+            ))}
+            <Typography
+              variant="h4"
+              component="div"
+              sx={{ flexGrow: 1, textAlign: "left" }}
+            >
+              No Bias 
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    );
+  } else{
+    return (
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="fixed" sx={{ background: "#7879F1", width: "100vw" }}>
+          <Toolbar>
+            {["left"].map((anchor) => (
+              <React.Fragment key={anchor}>
+                <IconButton
+                  size="large"
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  sx={{ mr: 2 }}
+                  onClick= {toggleDrawer (anchor, true)}
+                >
+                  <img src={MenuIcon} alt="MenuIcon" className="logo" />
+                </IconButton>
+                
+                  <Drawer 
+                  anchor={anchor}
+                  open={state[anchor]}
+                  onClose={toggleDrawer(anchor, false)}
+                  elevation={2}
+                >
+                {list(anchor)}
+                </Drawer>
+                
+                
+              </React.Fragment>
+            ))}
+            <Typography
+              variant="h4"
+              component="div"
+              sx={{ flexGrow: 1, textAlign: "left" }}
+            >
+              No Bias
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    );
+  }
 }
+
+export default ButtonAppBar;
