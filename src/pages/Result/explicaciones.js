@@ -1,20 +1,21 @@
 const Explicaciones = {
     performance: {
         situacion_1: {
-            1: "",
-            2: "",
-            3: "",
+            1: "Decidiste armar la mesa por tu cuenta. Frecuentemente se asume que el hombre posee mayores capacidades que la mujer en situaciones concretas cuando lo cierto es que en muchas de estas eso no es cierto y simplemente se subestiman sus competencias.  Al armar la mesa por tu cuenta te encuentras subestimando la capacidad de la mujer al creer que no es capaz de realizar la tarea por sí misma y además limitas su accionar.",
+            2: "Decidiste ayudarle a armar la mesa. Frecuentemente se asume que el hombre posee mayores capacidades que la mujer en situaciones concretas cuando lo cierto es que en muchas de estas eso no es cierto y simplemente se subestiman sus competencias. Al ayudarle a armar la mesa sin que haya solicitado previamente tu ayuda te encuentras inconscientemente asumiendo que la mujer no es capaz de realizar la tarea por sí sola. Si bien lo correcto parece ayudarla se debe primero preguntar si requiere de ayuda y no asumir que la necesita.",
+            3: "Decidiste pasarle los guantes para que no se dañe los dedos. Frecuentemente se asume que el hombre posee mayores capacidades que la mujer en situaciones concretas cuando lo cierto es que en muchas de estas eso no es cierto y simplemente se subestiman sus competencias. Al pasarle los guantes confías y crees que la mujer es completamente capaz de realizar la tarea por su cuenta y que no requiere de ayuda.",
+            4: "Decidiste explicarle cómo armar la mesa. Frecuentemente se asume que el hombre posee mayores capacidades que la mujer en situaciones concretas cuando lo cierto es que en muchas de estas eso no es cierto y simplemente se subestiman sus competencias. Al explicarle cómo armar la mesa sin que haya solicitado previamente tu ayuda te encuentras inconscientemente asumiendo que la mujer no es capaz de realizar la tarea por sí sola. Si bien lo correcto parece ayudarla se debe primero preguntar si requiere de ayuda y no asumir que la necesita.",
 
         },
         situacion_2: {
-            1: "",
-            2: "",
-            3: "",
+            1: "Decidiste recomendarle escoger otra carrera. Resulta muchas veces común asociar profesiones al género de las personas, creando estereotipos y asumiendo que los hombres tienen mayores capacidades para realizar ciertos trabajos, especialmente aquellos relacionados con las ciencias e ingenierías. Una mujer es tan capaz como un hombre en estas áreas. Al recomendarle otra carrera a tu hermana, te encuentras indirectamente apoyando estos estereotipos.  ",
+            2: "Decidiste apoyarla en su decisión. Resulta muchas veces común asociar profesiones al género de las personas, creando estereotipos y asumiendo que los hombres tienen mayores capacidades para realizar ciertos trabajos, especialmente aquellos relacionados con las ciencias e ingenierías. Una mujer es tan capaz como un hombre en estas áreas. Al apoyar la decisión de tu hermana, te encuentras combatiendo estos estereotipos.  ",
+            3: "Decidiste criticar su decisión. Resulta muchas veces común asociar profesiones al género de las personas, creando estereotipos y asumiendo que los hombres tienen mayores capacidades para realizar ciertos trabajos, especialmente aquellos relacionados con las ciencias e ingenierías. Una mujer es tan capaz como un hombre en estas áreas. Al recomendarle otra carrera a tu hermana, te encuentras apoyando estos estereotipos.  ",
         },
         situacion_3: {
-            1: "",
-            2: "",
-            3: "",
+            1: "Decidiste preguntar por su jefe. Las personas tienden a pensar en ocasiones que las mujeres son menos competentes que los hombres lo que los conduce a tomarlas con menor seriedad y asumir que tienen un menor poder y estatus. Al preguntar por su jefe te encuentras apoyando esta misma idea y asumes que la mujer no tiene la capacidad de liderar la empresa.",
+            2: "Decidiste pedir un café. Las personas tienden a pensar en ocasiones que las mujeres son menos competentes que los hombres lo que los conduce a tomarlas con menor seriedad y asumir que tienen un menor poder y estatus. Al pedir un café te encuentras realizando esto mismo, rebajas el estatus y poder de la persona por el hecho de ser mujer y asumes que no tiene la capacidad de liderar la empresa. ",
+            3: "Decidiste no hacer nada. Las personas tienden a pensar en ocasiones que las mujeres son menos competentes que los hombres lo que los conduce a tomarlas con menor seriedad y asumir que tienen un menor poder y estatus. Al no hacer nada no asumes nada con respecto a la mujer y no se genera ningún tipo de consecuencia evitando cualquier conflicto. En ocasiones no hacer nada puede ser la mejor opción.",
         },
     },
     maternal: {
@@ -59,19 +60,22 @@ const Explicaciones = {
     },
     attribution: {
         situacion_1: {
-            1: "",
-            2: "",
-            3: "",
+            1: "Decidiste no hacer nada. Las mujeres ganan en promedio un 27% menos que un hombre por hacer el mismo trabajo. Al decidir no hacer nada sabiendo que ambos hicieron el mismo trabajo, estás fomentando esto.",
+            2: "Decidiste ir a hablar con tu jefe. Las mujeres ganan en promedio un 27% menos que un hombre por hacer el mismo trabajo. Al decidir hablar con tu jefe, estás ayudando a combatir esta cifra para lograr una mayor igualdad.",
+            2_1: "Decidiste no estar de acuerdo con tu jefe. Al no estar de acuerdo con entregar parte de tu bono a tu compañera, si bien te preocupaste porque ambos ganen lo mismo, al momento de actuar no ayudaste en lo absoluto.",
+            2_2: "Decidiste estar de acuerdo con tu jefe. Al estar de acuerdo con entregar parte de tu bono a tu compañera, realmente aportaste en la disminución del sesgo pues le entregaste el mérito correspondiente por el trabajo realizado.", 
         },
         situacion_2: {
-            1: "",
-            2: "",
-            3: "",
+            1: "Decidiste seguir hablando de tu partido. Las mujeres frecuentemente suelen tener menos crédito por sus éxitos y más críticas por sus fracasos. Al ignorar a tu hermana indirectamente estás apoyando esta conducta.",
+            2: "Decidiste preguntarle a tu padre por qué no se veía tan contento por la victoria de tu hermana. Las mujeres frecuentemente suelen tener menos crédito por sus éxitos y más críticas por sus fracasos. Una buena forma de combatir esto es preguntándole a la persona directamente para que analice su decisión.",
+            2_1: "Decidiste estar completamente de acuerdo con su afirmación. Al estar de acuerdo con la afirmación de tu padre, le estás quitando mérito a tu hermana pues ganar un torneo requiere de un gran esfuerzo del equipo. ",
+            2_2: "Decidiste estar de acuerdo con su afirmación pero hacerle entender que aun así ganar un torneo tiene gran mérito. Al tomar esta decisión, de manera general le quitas mérito a las mujeres pero aún así comprendes que ganar un torneo de fútbol femenino requiere de un gran esfuerzo.",
+            2_3: "Decidiste estar en desacuerdo con su afirmación. Al estar en desacuerdo intentas convencer a tu padre que ganar un torneo independientemente del género tiene un gran mérito, y gracias a esto estás ayudando a combatir el sesgo.",
         },
         situacion_3: {
-            1: "",
-            2: "",
-            3: "",
+            1: "Decidiste felicitar a ambos por igual. Al felicitarlos por igual, consideras que independientemente del género cocinar un buen plato tiene un gran mérito. Aún así, evitaste un conflicto con tu compañero que opina de forma distinta, provocando que siga actuando de forma sesgada.",
+            2: "Decidiste preguntar a tu amigo por qué no felicitó a la mujer por igual. Al preguntarle esto a tu amigo, estás generando que analice y comprenda que la mujer también merece mérito por su trabajo.",
+            3: "Decidiste seguir comiendo. Vivenciaste una situación de sesgo y no decidiste hacer nada al respecto, lo que indirectamente implica que estás fomentando dichas situaciones.",
         },
     },
  
