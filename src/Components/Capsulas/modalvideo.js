@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -15,6 +15,9 @@ const style = {
 	bgcolor: '#A5A6F6',
 	borderRadius: 3,
 	color: "#35366E",
+	justifyContent: "center",
+
+	
 	// border: '2px solid background.paper',
 	// boxShadow: 20,
 	p: 4,
@@ -49,7 +52,7 @@ const VideoModal = ({bias, foto, explicacion, video}) => {
 				aria-labelledby="modal-modal-title"
 				aria-describedby="modal-modal-description"
 			>
-				<Box sx={style}>
+				<Box sx={style} >
 					<YouTube videoId={video} opts={opts} />
 					<br/>
 					<Typography variant="h4" component="h2" sx={{textAlign:"left"}}>
