@@ -262,7 +262,7 @@ function App() {
           <Text style={styles.CodeEnt}>
           <Text>{"Tu código de empresa es "}</Text>
           <Text style={{fontWeight:"bold"}}>{`${body.code}`}</Text>
-          <IconButton style={{color:"#1685ef"}}><InfoIcon fontSize = "large" onClick={handleOpen} /></IconButton>
+          <IconButton style={{color:"#1685ef", marginBottom:7}}><InfoIcon fontSize = "large" onClick={handleOpen} /></IconButton>
           </Text>
       </Grid>
       <Modal
