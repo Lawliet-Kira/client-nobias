@@ -43,7 +43,7 @@ export default function Capsulas() {
                     </Typography>
                 </Grid>
                 <Grid item xs={4}>
-                    <VideoModal bias="Affinity" foto={MiniPerformance} explicacion={Biases["affinity"].description} video="2g811Eo7K8U"/>
+                    <VideoModal bias="Affinity" foto={MiniPerformance} explicacion={Biases["affinity"].description} video="Xg03HuskXq8"/>
                     <Typography fontSize={24} fontWeight={700} color={color}>
                         Affinity Bias
                     </Typography>
@@ -55,26 +55,26 @@ export default function Capsulas() {
                     </Typography>
                 </Grid>
                 <Grid item xs={4}>
-                    <VideoModal bias="Performance" foto={MiniPerformance} explicacion={Biases["performance"].description} video="2g811Eo7K8U"/>
+                    <VideoModal bias="Performance" foto={MiniPerformance} explicacion={Biases["performance"].description} video="ppYjVY_yCBM"/>
                     <Typography fontSize={24} fontWeight={700} color={color}>
                         Performance Bias
                     </Typography>
                 </Grid>
                 {/* Segunda Fila */}
                 <Grid item xs={4}>
-                    <VideoModal bias="Unconscious" foto={MiniUnconscious} explicacion={Biases["unconscious"].description} video="2g811Eo7K8U"/>
+                    <VideoModal bias="Unconscious" foto={MiniUnconscious} explicacion={Biases["unconscious"].description} video="oOAr9FgBr80"/>
                     <Typography fontSize={24} fontWeight={700} color={color}>
                         Unconscious Bias
                     </Typography>
                 </Grid>
                 <Grid item xs={4}>
-                    <VideoModal bias="Maternal" foto={MiniMaternal} explicacion={Biases["maternal"].description} video="2g811Eo7K8U"/>
+                    <VideoModal bias="Maternal" foto={MiniMaternal} explicacion={Biases["maternal"].description} video="OBV-DxQVevg"/>
                     <Typography fontSize={24} fontWeight={700} color={color}>
                         Maternal Bias
                     </Typography>
                 </Grid>
                 <Grid item xs={4}>
-                    <VideoModal bias="Attribution" foto={MiniAttribution} explicacion={Biases["attribution"].description} video="2g811Eo7K8U"/>
+                    <VideoModal bias="Attribution" foto={MiniAttribution} explicacion={Biases["attribution"].description} video="eTndQT0G6BI"/>
                     <Typography fontSize={24} fontWeight={700} color={color}> 
                         Attribution Bias
                     </Typography>
