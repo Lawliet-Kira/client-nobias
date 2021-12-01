@@ -38,7 +38,7 @@ function Inicio () {
                         </Grid>
                         <Grid item xs={6}>
                             <Typography variant="h2" color="white">
-                            ienvenido/as
+                            ienvenido/a
                             </Typography>
                         </Grid>  
                     </Grid>
