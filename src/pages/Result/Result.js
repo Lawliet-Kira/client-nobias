@@ -85,6 +85,9 @@ export default function Result( ) {
 
 
   if (bias === "unconscious") {
+      texto_situacion_1 = Explicaciones[bias]["situacion_1"][array_opciones[0]];
+      texto_situacion_2 = Explicaciones[bias]["situacion_2"][array_opciones[1]];
+      texto_situacion_3 = Explicaciones[bias]["situacion_3"][array_opciones[2]];
       display_variable_4 = "block";
       simulation4 = urlParams.get("simulation4");
       texto_situacion_4 = Explicaciones[bias]["situacion_4"][array_opciones[3]];
