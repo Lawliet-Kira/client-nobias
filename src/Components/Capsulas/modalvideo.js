@@ -15,7 +15,7 @@ const style = {
 	bgcolor: '#A5A6F6',
 	borderRadius: 3,
 	color: "#35366E",
-	justifyContent: "center",
+	textAlign: "center",
 
 	
 	// border: '2px solid background.paper',
@@ -41,8 +41,6 @@ const VideoModal = ({bias, foto, explicacion, video}) => {
 		borderRadius: 8,
 	}
 
-
-
 	return (
 		<div>
 			<img alt="nombre" src={foto} width={400} maxHeight={300} onClick={()=> setOpen(true)} style={imgStyle} />
@@ -53,12 +51,12 @@ const VideoModal = ({bias, foto, explicacion, video}) => {
 				aria-describedby="modal-modal-description"
 			>
 				<Box sx={style} >
-					<YouTube videoId={video} opts={opts} />
+					<YouTube videoId={video} opts={opts} className="video"/>
 					<br/>
 					<Typography variant="h4" component="h2" sx={{textAlign:"left"}}>
 						{bias} Bias
 					</Typography>
-					<Typography fontSize={16} sx={{ mt: 2 }}>
+					<Typography fontSize={16} sx={{ mt: 2, textAlign:"left" }}>
 						{explicacion}
 					</Typography>
 				</Box>
