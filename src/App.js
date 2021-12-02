@@ -1,34 +1,46 @@
 import React, { useState } from 'react';
 
-import { ThemeProvider } from '@mui/material/styles';
-
+import "./App.css";
 import '@fontsource/roboto/400.css';
 
 import "semantic-ui-css/semantic.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Auth from "./views/Auth";
-import LoggedLayout from './views/LoggedLayout';
-import theme from "./components/ui/Theme";
+import Result from "./views/Result/Result";
+import Capsulas from "./views/Capsulas/Capsulas";
+import Inicio from "./views/Inicio/Inicio";
+import InicioPersona from "./views/Inicio/Inicio-persona";
+import Login from "./views/Login";
+import Chatbot from "./Components/ChatbotNoBias";
 
-//SACAR
-import Dashboard from './components/Dashboard';
+import {Outlet, Routes, Route, BrowserRouter} from "react-router-dom"
+
+
+const LayoutsWithNavbar = () => {
+  return(
+    <>
+    <Outlet/>
+    </>
+  );
+}
 
 function App() {
-
-  const [user, setUser] = useState(null);
-
   return (
-      
-      <ThemeProvider theme={theme} >
-        { 
-          !user 
-            ? 
-          <Auth user={user} setUser={setUser} /> 
-            :
-          <LoggedLayout user={user} setUser={setUser} />
-        }
-      </ThemeProvider>
+
+    <div className="App-header">
+      <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<LayoutsWithNavbar/>}>
+              <Route index element={<Inicio/>}/>
+              <Route element={<Login/>} path="Empresa" />
+              <Route element={<Chatbot/>} path="Chatbot" />
+              <Route element={<InicioPersona/>} path="Persona" />
+              <Route element={<Capsulas/>} path="Capsulas" />
+              <Route element={<Result/>} path="Resultados" />
+            </Route>
+        </Routes>
+        </BrowserRouter>
+    </div>
       
   );
 

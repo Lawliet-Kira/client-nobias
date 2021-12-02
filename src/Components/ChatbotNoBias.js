@@ -14,6 +14,12 @@ import PerformanceQ from "./questions/PerformanceQ";
 import UnconsciousQ from "./questions/UnconsciousQ";
 import MaternalQ from './questions/MaternalQ';
 
+import Topbar from '../Components/NavBar/AppBar';
+
+import FAB from "../Components/Fab/fab";
+
+
+
 const theme = {
     background: '#f5f8fb',
     fontFamily: 'Poppins',
@@ -25,6 +31,13 @@ const theme = {
     userBubbleColor: '#9C9DFF',
     userFontColor: '#4a4a4a',
 };
+
+const chatbotStyle = {
+    position: 'absolute',
+	top: '50%',
+	left: '50%',
+	transform: 'translate(-50%, -50%)',
+}
 
 const ChatbotNoBias = (props) => {
     
@@ -58,6 +71,7 @@ const ChatbotNoBias = (props) => {
 
     return ( 
         <ThemeProvider theme={theme}>
+            <Topbar />
             <Chatbot
                 width="1000px"
                 height="700px"
@@ -66,8 +80,11 @@ const ChatbotNoBias = (props) => {
                 inputStyle={{ display: "none" }}
                 botAvatar={"../logoNB.png"}
                 steps={steps}
+                style={chatbotStyle}
             />
+            <FAB text_bold="¿No sabes que hacer?" text_normal="Responde las preguntas del chatbot"/>
         </ThemeProvider>
+        
     );
 }
  

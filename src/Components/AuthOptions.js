@@ -5,14 +5,15 @@ import { makeStyles } from '@mui/styles';
 import { purple } from '@mui/material/colors';
 import logoNB from '../assets/logoNB.png';
 
-import "../components/scss/AuthOptions.scss";
+import "../Components/scss/AuthOptions.scss";
 
 const useStyles = makeStyles( theme => ({
     authOptions: {
         display:'flex',
         flexDirection: 'column',
         flexWrap: 'wrap',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: 100
     },
     avatar: {
         margin: theme.spacing(4),
@@ -22,9 +23,9 @@ const useStyles = makeStyles( theme => ({
 
 const ColorButton = styled(Button)(({theme}) => ({ 
     color: theme.palette.getContrastText(purple[500]),
-    backgroundColor: purple[500],
+    backgroundColor: "#7879F1",
     '&:hover': {
-      backgroundColor: purple[700],
+      backgroundColor: "#4646EC",
     },
 }));
 
@@ -35,24 +36,18 @@ export default function AuthOptions( props ) {
     const classes = useStyles();
 
     return (
-        <div component='main' className={classes.authOptions} >
+        <div component='main' className={classes.authOptions}>
 
-            <Avatar sx={{ width: 100, height: 100 }} 
+            <Avatar sx={{ width: 200, height: 200 }} 
                     src={logoNB} 
                     className={classes.avatar} 
                     variant='rounded'
                     alt='Logo No Bias'
             />
     
-            <Stack direction="column" spacing={4}>
-                <ColorButton variant="contained" className="login" onClick={ () => setSelectedForm('test_ent')} >
-                    Start Test
-                </ColorButton>
+            <Stack direction="row" spacing={4}>
                 <ColorButton variant="contained" className="login" onClick={ () => setSelectedForm('login')} >
                     Log-in
-                </ColorButton>
-                <ColorButton variant="contained" className="test" onClick={ () => setSelectedForm('test_free')}>
-                    Try free test
                 </ColorButton>
                 <ColorButton variant="contained" className='register' onClick={ () => setSelectedForm('register') } >
                     Register

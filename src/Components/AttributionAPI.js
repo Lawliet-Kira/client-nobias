@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 
 import { Loading } from "react-simple-chatbot";
 
-import { postToAPI, codeSesgos } from '../utils/API';
+import { postToAPI, codeSesgos } from "../Utils/API";
 
 import "./scss/AttributionAPI.scss";
 
