@@ -32,11 +32,11 @@ function App() {
         <Routes>
             <Route exact path="/" element={<LayoutsWithNavbar/>}>
               <Route exact index element={<Inicio/>}/>
-              <Route exact element={<Login/>} path="Empresa" />
-              <Route exact element={<Chatbot/>} path="Chatbot" />
-              <Route exact element={<InicioPersona/>} path="Persona" />
-              <Route exact element={<Capsulas/>} path="Capsulas" />
-              <Route exact element={<Result/>} path="Resultados" />
+              <Route exact element={<Login/>} path="/Empresa/" />
+              <Route exact element={<Chatbot/>} path="/Chatbot/" />
+              <Route exact element={<InicioPersona/>} path="/Persona/" />
+              <Route exact element={<Capsulas/>} path="/Capsulas/" />
+              <Route exact element={<Result/>} path="/Resultados/" />
             </Route>
         </Routes>
         </BrowserRouter>
