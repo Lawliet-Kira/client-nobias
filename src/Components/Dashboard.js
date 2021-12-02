@@ -65,10 +65,8 @@ const Dashboard = (props) => {
 
   document.title = "Dashboard";
 
-  console.log("user entocode", user.entcode);
-
   //Se usan para el grafico 
-  const [body, setbody] = useState({ code: "RR3F3MC2" });
+  const [body, setbody] = useState({ code: user.entcode });
   const [data, setdata] = useState([]);
   const [bias, SetBias] = useState(0);
 
