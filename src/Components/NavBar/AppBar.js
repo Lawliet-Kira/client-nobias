@@ -69,39 +69,39 @@ const ButtonAppBar = ({tipo}) => {
           </a>
         </List>
     </Box>
-  )
+  );
+
+  const list2 = (anchor) => (
+    <Box 
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+      sx = {{bgcolor: '#7879F1', height:'100%'}}
+      >
+        <List>
+        <Link to="/">
+          <ListItem button key={'Cerrar Sesion'} sx={{pt: 3, pb:3, color:'white'}}>
+              <ListItemIcon>
+                <HomeIcon sx={{color: 'white'}}/>
+              </ListItemIcon>
+              <ListItemText primary={'Cerrar Sesion'}/>
+          </ListItem>
+          </Link>
+          <a target="_blank" rel="noreferrer" href="https://nobias.feriadesoftware.cl">
+          <ListItem button key={'Conoce Nobias'}  sx={{pt: 3, pb:3, color:'white'}}>
+            <ListItemIcon>
+              <GroupsIcon sx={{color: 'white'}}/>
+            </ListItemIcon>
+            <ListItemText primary={'Conoce Nobias'}/>
+          </ListItem>
+          </a>
+        </List>
+    </Box>
+  );
   
-  if (tipo === "inicio") {
-    return (
-      <Box height="10vh" sx={{ flexGrow: 1 }}>
-        <AppBar height="10vh" position="fixed" sx={{ background: "#7879F1", width: "100vw" }}>
-          
-          <Toolbar>
-            {["left"].map((anchor) => (
-              <React.Fragment key={anchor}>
-                <IconButton
-                  size="large"
-                  edge="start"
-                  color="inherit"
-                  aria-label="menu"
-                  sx={{ mr: 2 }}
-                >
-                  <img src={MenuIcon} alt="MenuIcon" className="logo" />
-                </IconButton>
-              </React.Fragment>
-            ))}
-            <Typography
-              variant="h4"
-              component="div"
-              sx={{ flexGrow: 1, textAlign: "left" }}
-            >
-              No Bias 
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </Box>
-    );
-  } else{
+  console.log("el tipo es ", tipo);
+
+  
     return (
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="fixed" sx={{ background: "#7879F1", width: "100vw" }}>
@@ -125,7 +125,7 @@ const ButtonAppBar = ({tipo}) => {
                   onClose={toggleDrawer(anchor, false)}
                   elevation={2}
                 >
-                {list(anchor)}
+                {(tipo === "dashboard") ? list2(anchor) : list(anchor)}
                 </Drawer>
                 
                 
@@ -142,7 +142,6 @@ const ButtonAppBar = ({tipo}) => {
         </AppBar>
       </Box>
     );
-  }
 }
 
 export default ButtonAppBar;
