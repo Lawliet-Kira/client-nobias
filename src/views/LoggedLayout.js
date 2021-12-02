@@ -5,9 +5,7 @@ import Dashboard from '../Components/Dashboard';
 const LoggedLayout = (props) => {
 
     return (  
-       <Router>
         <Dashboard {...props} />
-       </Router>
     );
 }
  
