@@ -11,7 +11,7 @@ const style = {
 	left: '50%',
 	transform: 'translate(-50%, -50%)',
 	width: "640",
-	height: "60vh",
+	height: "75vh",
 	bgcolor: '#A5A6F6',
 	borderRadius: 3,
 	color: "#35366E",
@@ -25,7 +25,7 @@ const style = {
 
 
 
-const VideoModal = ({bias, foto, explicacion, video}) => {
+const VideoModal = ({bias, foto, explicacion, video, definicion}) => {
 	const [open, setOpen] = React.useState(false);
 	const handleClose = () => setOpen(false);
 
@@ -56,8 +56,11 @@ const VideoModal = ({bias, foto, explicacion, video}) => {
 					<Typography variant="h4" component="h2" sx={{textAlign:"left"}}>
 						{bias} Bias
 					</Typography>
-					<Typography fontSize={16} sx={{ mt: 2, textAlign:"left" }}>
-						{explicacion}
+					<Typography fontSize={16} sx={{ mt: 2, textAlign:"justify" }}>
+						{<b>Definición:</b>} {definicion}
+					</Typography>
+					<Typography fontSize={16} sx={{ mt: 2, textAlign:"justify" }}>
+						{<b>Explicación:</b>} {explicacion}
 					</Typography>
 				</Box>
 			</Modal>
