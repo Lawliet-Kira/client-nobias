@@ -33,7 +33,7 @@ function Inicio () {
                 <Grid item xs={3}></Grid>
                 <Grid item xs={6} rowSpacing={2} alignItems="center" sx={{minWidth:600}}>
                     <Grid container alignItems= "center">
-                        <Grid item xs={6}>
+                        <Grid item xs={5}>
                             <img src={MenuIcon} alt="Logo Nobias" width={250}/>
                         </Grid>
                         <Grid item xs={6}>
