@@ -14,28 +14,15 @@ import MSColumn2D from "fusioncharts/fusioncharts.charts";
 
 // Include the theme as fusion
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
-
 import Grid from "@mui/material/Grid";
-
-import { styled } from "@mui/material/styles";
-
 import ButtonAppBar from "./NavBar/AppBar";
-
-import { borders } from '@mui/system';
-
 import axios from 'axios';
-
 import "./scss/Dashboard.scss";
-
-import { copyDone } from "pg-protocol/dist/messages";
-
 import InfoIcon from '@mui/icons-material/Info';
-
 import Modal from '@mui/material/Modal'
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
-
 import FAB from "../Components/Fab/fab.js";
 import Dashbar from '../Components/NavBar/DashBar.js';
 
