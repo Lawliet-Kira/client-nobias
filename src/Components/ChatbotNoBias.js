@@ -19,6 +19,8 @@ import Topbar from '../Components/NavBar/AppBar';
 import FAB from "../Components/Fab/fab";
 
 
+import logo from "../logoNB.png";
+
 
 const theme = {
     background: '#f5f8fb',
@@ -78,7 +80,7 @@ const ChatbotNoBias = (props) => {
                 hideHeader={true}
                 hideSubmitButton={true}
                 inputStyle={{ display: "none" }}
-                botAvatar={"../logoNB.png"}
+                botAvatar={logo}
                 steps={steps}
                 style={chatbotStyle}
             />
