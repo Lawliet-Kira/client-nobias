@@ -11,6 +11,9 @@ import { makeStyles } from '@mui/styles';
 import fondo from '../assets/purple.jpg';
 import { LockOutlined } from '@mui/icons-material';
 
+import FAB from "../Components/Fab/fab.js";
+import Topbar from '../Components/NavBar/AppBar.js';
+
 import LogoNoBias from "../assets/logoNB.png";
 import "../views/scss/Auth.scss";
 
@@ -96,6 +99,7 @@ export default function Auth( props ) {
     return (
         
         <Grid container component='main' className={classes.root}>
+            <Topbar />
             <CssBaseline />
 
             { !employee ?
@@ -109,8 +113,9 @@ export default function Auth( props ) {
                     <ChatbotNoBias  employee={employee} />
                 </div>
             }
-
+            <FAB text_bold="Inicia sesion, o registrate"/>
         </Grid>
+        
 
     );
 
