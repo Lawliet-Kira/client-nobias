@@ -1,13 +1,8 @@
 import React, { Fragment, useState } from 'react';
-
 import axios from 'axios';
-
 import {  Avatar, Typography, TextField, Button } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import fondo from '../assets/purple.jpg';
 import logoNB from '../assets/logoNB.png';
-import { ConstructionOutlined, LockOutlined } from '@mui/icons-material';
-import { red } from '@mui/material/colors';
 import ChargeBottom from './ChargeBottom';
 import { styled } from '@mui/material/styles';
 
