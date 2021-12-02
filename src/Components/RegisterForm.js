@@ -51,26 +51,6 @@ const CssTextField = styled(TextField)({
     },
 });
 
-const CssOutLined = styled(OutlinedInput)({
-    '& label.Mui-focused': {
-      color: "#4747EB",
-    },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: "#4747EB",
-    },
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: "#5A5AED",
-      },
-      '&:hover fieldset': {
-        borderColor: '#1414B8',
-      },
-      '&.Mui-focused fieldset': {
-        borderColor: "#4747EB",
-      },
-    },
-});
-
 function defaultValueForm() {
     return {
       nickname: "",
@@ -85,24 +65,10 @@ const RegisterForm = (props) => {
     const { setSelectedForm } = props;
     const [ loading, setLoading ] = useState(false); 
     const [ formError, setFormError ] = useState({});
-    const [ showPassword, setShowPassword ] = useState(false);
-
+    
     const [ body, setBody ] = useState(defaultValueForm);
 
     const classes = useStyles();
-
-    const returnPage = () => {
-        setBody(defaultValueForm);
-        setSelectedForm(null);
-    }
-
-    const handleClickShowPassword = () => {
-        setShowPassword(!showPassword);
-    }
-
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
 
     const handleChange = e => {
 
@@ -130,7 +96,7 @@ const RegisterForm = (props) => {
             formOk = false;
         }
 
-        if ( body.repassword === body.password ){
+        if ( !(body.repassword === body.password) ){
             errors.repassword = true;
             formOk = false;
         }
@@ -159,7 +125,6 @@ const RegisterForm = (props) => {
         } else {
             console.log("Formulario no Valido");
         }
-
 
     }
 
@@ -190,35 +155,18 @@ const RegisterForm = (props) => {
                         onChange={handleChange}
                     />
 
-
-                    <FormControl fullWidth variant="outlined">
-                        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-                        <CssOutLined
-                            id="outlined-adornment-password"
-                            fullWidth
-                            error={ formError.password }
-                            type={ showPassword ? 'text' : 'password' }
-                            color='primary'
-                            margin='normal'
-                            name='password'
-                            helperText={ formError.password && "Please enter a valid password" }
-                            value={body.password}
-                            onChange={handleChange}
-                            endAdornment={
-                                <InputAdornment position="end">
-                                    <IconButton
-                                        aria-label="toggle password visibility"
-                                        onClick={handleClickShowPassword}
-                                        onMouseDown={handleMouseDownPassword}
-                                        edge="end"
-                                    >
-                                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                                    </IconButton>
-                                </InputAdornment>
-                            }
-                            label="Password"
-                        />
-                    </FormControl>
+                    <CssTextField
+                        fullWidth
+                        error={ formError.password }
+                        type='password'
+                        color='primary'
+                        margin='normal'
+                        name='password'
+                        helperText={ formError.password && "Please enter a valid password" }
+                        value={body.password}
+                        onChange={handleChange}
+                        label="Password"
+                    />
 
                     <CssTextField
                         fullWidth

@@ -69,7 +69,6 @@ const LoginForm = (props) => {
     const { setSelectedForm, setUser } = props;
     const [loading, setLoading] = useState(false);
     
-
     const [body, setBody] = useState(defaultValueForm);
 
     const handleChange = e => {
